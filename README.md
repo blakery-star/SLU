@@ -1,7 +1,7 @@
 ### 创建环境
 
     conda create -n slu python=3.6
-    source activate slu
+    conda activate slu
     pip install torch==1.7.1
 
 ### 运行
