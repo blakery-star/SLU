@@ -18,11 +18,13 @@ def add_argument_base(arg_parser):
     arg_parser.add_argument('--device', type=int, default=-1, help='Use which device: -1 -> cpu ; the index of gpu o.w.')
     arg_parser.add_argument('--testing', action='store_true', help='training or evaluation mode')
     arg_parser.add_argument('--model', default="baseline", help='Model for tagging')
+    arg_parser.add_argument('--train_data', default="asr", help='which data for training, manu or asr')
 
     # For CSC (Denoising the results of ASR) #
     arg_parser.add_argument('--csc_model', default='MacBERT', 
                             help='Model for CSC. Muse be one of the following: \'MacBERT\',\'Ernie\',\'sound\'')
     arg_parser.add_argument('--pretrained', default=None, help='Pretrained model for CSC.')
+
 
     #### Training Hyperparams ####
     arg_parser.add_argument('--batch_size', default=32, type=int, help='Batch size')
