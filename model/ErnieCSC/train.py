@@ -56,8 +56,7 @@ if __name__ == "__main__":
 	pinyin_vocab = Vocab.load_vocabulary(
 		args.pinyin_vocab_file_path, unk_token='[UNK]', pad_token='[PAD]')
 
-	train_list = list(read_train_ds('../../data_pretraining/AutomaticCorpusGeneration.txt'))
-	train_list.extend(list(read_train_ds("../../data_pretraining/sighanCntrain.txt")))
+	train_list = list(list(read_train_ds("../../data_pretraining/sighanCntrain.txt")))
 	test_List = list(read_train_ds('../../data_pretraining/sighanCntest.txt'))
 
 	modelPath = args.model_name_or_path
