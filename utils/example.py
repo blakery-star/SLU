@@ -14,21 +14,26 @@ class Example():
         cls.label_vocab = LabelVocab(root)
 
     @classmethod
-    def load_dataset(cls, data_path):
+    def load_dataset(cls, data_path,mode):
         dataset = json.load(open(data_path, 'r',encoding='utf-8'))
         examples = []
         for di, data in enumerate(dataset):
             for ui, utt in enumerate(data):
-                ex = cls(utt, f'{di}-{ui}')
+                ex = cls(utt, f'{di}-{ui}',mode=mode)
                 examples.append(ex)
         return examples
 
-    def __init__(self, ex: dict, did):
+    def __init__(self, ex: dict, did, mode):
         super(Example, self).__init__()
         self.ex = ex
         self.did = did
 
-        self.utt = ex['asr_1best']
+        if mode =="manu":
+            self.utt = ex['manual_transcript']
+        elif mode == "asr":
+            self.utt = ex['asr_1best']
+        else:
+            raise ValueError("No such training_data")
         self.slot = {}
         for label in ex['semantic']:
             act_slot = f'{label[0]}-{label[1]}'
