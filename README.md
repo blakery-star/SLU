@@ -49,3 +49,10 @@
 + 增加了多模型选择模块
   + 在scripts文件夹中增加了slu_tagging.py文件，该文件同样为主程序脚本，但支持选择不同的模型进行测试或训练。
   + 修改了utils/args.py文件，添加了"--model"参数。
+
++ 增加了训练数据选择功能
+  + 修改了utils/args.py文件，添加了"--training_data"参数。
+
++ 增加了两个模型
+  + newDecode
+  + onei
