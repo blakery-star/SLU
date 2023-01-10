@@ -14,7 +14,7 @@ class Example():
         cls.label_vocab = LabelVocab(root)
 
     @classmethod
-    def load_dataset(cls, data_path,mode):
+    def load_dataset(cls, data_path,mode="asr"):
         dataset = json.load(open(data_path, 'r',encoding='utf-8'))
         examples = []
         for di, data in enumerate(dataset):
