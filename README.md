@@ -3,7 +3,8 @@
     conda create -n slu python=3.6
     conda activate slu
     pip install torch==1.7.1
-
+    
+    以上为推荐设置，在本branch中同样支持高版本torch（经验证，至少支持至1.13.0版本）。
 ### 运行
     
 在根目录下运行
@@ -41,3 +42,10 @@
   + 强力的NLP工具库: https://stanfordnlp.github.io/stanza/
 + jieba
   + 中文分词工具: https://github.com/fxsjy/jieba
+
+### 改动
++ 针对特定运行环境下编码错误的修复
+  + 对在\utils文件夹下的文件中的所有json.load(f)函数，在其之前的open函数的输入中，添加了变量设置encoding = 'utf-8'。
++ 增加了多模型选择模块
+  + 在scripts文件夹中增加了slu_tagging.py文件，该文件同样为主程序脚本，但支持选择不同的模型进行测试或训练。
+  + 修改了utils/args.py文件，添加了"--model"参数。
