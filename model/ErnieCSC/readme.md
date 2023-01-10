@@ -1,0 +1,1 @@
+This pretraining CSC model is based on the repository https://github.com/orangetwo/ernie-csc.
