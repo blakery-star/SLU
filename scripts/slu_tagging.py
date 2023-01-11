@@ -24,14 +24,22 @@ print("Random seed is set to %d" % (args.seed))
 print("Use GPU with index %s" % (args.device) if args.device >= 0 else "Use CPU as target torch device")
 
 start_time = time.time()
-train_path = os.path.join(args.dataroot, 'train.json')
-dev_path = os.path.join(args.dataroot, 'development.json')
+Example.configuration(args, train_path=os.path.join(args.dataroot, 'train.json'))
 
-
-Example.configuration(args, train_path=train_path)
+if args.train_data == "asr" or args.train_data == "manu":
+    train_path = os.path.join(args.dataroot, 'train.json')
+else:
+    train_path = os.path.join(args.dataroot, "train_{}_csc.json".format(args.csc_model))
 
 train_dataset = Example.load_dataset(train_path,mode=args.train_data)
-dev_dataset = Example.load_dataset(dev_path,mode="asr")
+
+if args.dev_data == "asr":
+    dev_path = os.path.join(args.dataroot, 'development.json')
+else:
+    dev_path = os.path.join(args.dataroot, "dev_{}_csc.json".format(args.csc_model))
+dev_dataset = Example.load_dataset(dev_path,mode=args.dev_data)
+
+
 print("Load dataset and database finished, cost %.4fs ..." % (time.time() - start_time))
 print("Dataset size: train -> %d ; dev -> %d" % (len(train_dataset), len(dev_dataset)))
 

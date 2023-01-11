@@ -3,13 +3,23 @@
     conda create -n slu python=3.6
     conda activate slu
     pip install torch==1.7.1
+    pip install transformers
+    pip install pycorrector
+    pip install paddlenlp
     
     以上为推荐设置，在本branch中同样支持高版本torch（经验证，至少支持至1.13.0版本）。
 ### 运行
     
 在根目录下运行
 
-    python scripts/slu_baseline.py
+    python scripts/slu_tagging.py
+
+参数设置
+  + --model：选择序列标注模型：baseline/bert
+  + --decode：选择解码方式：baseline/onei/newdecode
+  + --train_data：选择用于训练序列标注模型的训练数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
+  + --dev_data： 选择用于测试序列标注模型的测试数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
+
 
 ### 代码说明
 
@@ -24,6 +34,7 @@
 + `utils/batch.py`:将数据以批为单位转化为输入
 + `model/slu_baseline_tagging.py`:baseline模型
 + `scripts/slu_baseline.py`:主程序脚本
++ `utils/decoder.py`:从序列标注解码得到slot-value
 
 ### 有关预训练语言模型
 
@@ -56,3 +67,5 @@
 + 增加了两个模型
   + newDecode
   + onei
+
++ 增加了csc模块

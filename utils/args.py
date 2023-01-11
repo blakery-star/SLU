@@ -19,8 +19,18 @@ def add_argument_base(arg_parser):
     arg_parser.add_argument('--testing', action='store_true', help='training or evaluation mode')
     arg_parser.add_argument('--model', default="baseline", help='Model for tagging, baseline/bert')
     arg_parser.add_argument('--decode', default="baseline", help='Mode of tagging, baseline/onei/newdecode ')
-    arg_parser.add_argument('--train_data', default="asr", help='which data for training, manu/asr')
-    
+    arg_parser.add_argument('--train_data', default="asr", help='Which data for training, manu/asr/MacBERT/sound/Ernie + _his or not')
+    arg_parser.add_argument('--dev_data', default="asr", help='Which data for testing, asr/MacBERT/sound/Ernie')
+
+
+    # For CSC (Denoising the results of ASR) #
+    arg_parser.add_argument('--csc_model', default='MacBERT', 
+                            help='Model for CSC. Muse be one of the following: \'MacBERT\',\'Ernie\',\'sound\'')
+    arg_parser.add_argument('--csc_pretrained', type=str, default=None, help='Pretrained model for CSC.')
+    arg_parser.add_argument('--csc_train', action='store_true', default=False)
+    arg_parser.add_argument('--use_history', action='store_true', default=False)
+    arg_parser.add_argument('--csc_save', action='store_true', default=False)
+
     #### Training Hyperparams ####
     arg_parser.add_argument('--batch_size', default=64, type=int, help='Batch size')
     arg_parser.add_argument('--lr', type=float, default=1e-3, help='learning rate')

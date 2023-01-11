@@ -42,10 +42,9 @@ class Example():
 
         if mode =="manu":
             self.utt = ex['manual_transcript']
-        elif mode == "asr":
-            self.utt = ex['asr_1best']
         else:
-            raise ValueError("No such training_data")
+            self.utt = ex['asr_1best']
+        
         self.slot = {}
         for label in ex['semantic']:
             act_slot = f'{label[0]}-{label[1]}'
