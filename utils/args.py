@@ -16,15 +16,19 @@ def add_argument_base(arg_parser):
     arg_parser.add_argument('--word2vec_path', default='./word2vec-768.txt', help='path of word2vector file path')
     arg_parser.add_argument('--seed', default=999, type=int, help='Random seed')
     arg_parser.add_argument('--device', type=int, default=-1, help='Use which device: -1 -> cpu ; the index of gpu o.w.')
-    arg_parser.add_argument('--testing', action='store_true', help='training or evaluation mode')
+    # arg_parser.add_argument('--testing', action='store_true', help='training or evaluation mode')
     arg_parser.add_argument('--model', default="baseline", help='Model for tagging')
     arg_parser.add_argument('--train_data', default="asr", help='which data for training, manu or asr')
+    arg_parser.add_argument('--training', action='store_true', help='whether training or not.')
+    arg_parser.add_argument('--testing', action='store_true', help='whether testing or not.')
 
     # For CSC (Denoising the results of ASR) #
     arg_parser.add_argument('--csc_model', default='MacBERT', 
                             help='Model for CSC. Muse be one of the following: \'MacBERT\',\'Ernie\',\'sound\'')
-    arg_parser.add_argument('--pretrained', default=None, help='Pretrained model for CSC.')
-
+    arg_parser.add_argument('--csc_pretrained', type=str, default=None, help='Pretrained model for CSC.')
+    arg_parser.add_argument('--csc_train', action='store_true', default=False)
+    arg_parser.add_argument('--use_history', action='store_true', default=False)
+    arg_parser.add_argument('--csc_save', action='store_true', default=False)
 
     #### Training Hyperparams ####
     arg_parser.add_argument('--batch_size', default=32, type=int, help='Batch size')

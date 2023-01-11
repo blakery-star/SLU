@@ -19,7 +19,7 @@ class Example():
         examples = []
         for di, data in enumerate(dataset):
             for ui, utt in enumerate(data):
-                ex = cls(utt, f'{di}-{ui}',mode=mode)
+                ex = cls(utt, f'{di}-{ui}', mode=mode)
                 examples.append(ex)
         return examples
 

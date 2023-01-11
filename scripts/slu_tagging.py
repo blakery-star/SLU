@@ -1,9 +1,6 @@
 #coding=utf8
 import sys, os, time, gc, json
 from torch.optim import Adam
-from model.ErnieCSC.model import Ernie
-from pycorrector.macbert.macbert_corrector import MacBertCorrector
-from pycorrector.ernie_csc.ernie_csc_corrector import ErnieCSCCorrector
 
 install_path = os.path.abspath(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(install_path)
@@ -54,25 +51,6 @@ elif args.model =="newDecode":
     TagModel = SLUTaggingNewDecode(args).to(device)
 else:
     raise ValueError("No such tagging model")
-
-if args.csc_model == 'Ernie4CSC':
-    csc_model = Ernie()
-    if args.pretrained is None:
-        args.pretrained = "checkpoint/Ernie4CSC_model_best.pth"
-    para_dict = torch.load(args.pretrained)
-    csc_model.load_state_dict(para_dict)
-elif args.csc_model == "MacBERT":
-    if args.pretrained is None:
-        args.pretrained = "shibing624/macbert4csc-base-chinese"
-    csc_model = MacBertCorrector(args.pretrained)
-elif args.csc_model == "Ernie":
-    if args.pretrained is None:
-        args.pretrained = "csc-ernie-1.0"
-    csc_model = ErnieCSCCorrector(args.pretrained)
-elif args.csc_model == "sound":
-    raise NotImplementedError
-
-csc_model.to(device)
 
 Example.word2vec.load_embeddings(TagModel.word_embed, Example.word_vocab, device=device)
 
