@@ -10,19 +10,12 @@ from utils.initialization import *
 
 from utils.batch import from_example_list
 from utils.vocab import PAD
+from utils.example import Example
 from model.slu_baseline_tagging import SLUTagging
-from model.slu_tagging_onei import OneiTagging
-from model.slu_tagging_new_decoder import SLUTaggingNewDecode
-from model.slu_bert_onei import SLUBertOnei
-from model.slu_bert import SLUBert
+from model.slu_bert_bertvocab import SLUBert_bertvocab
 
 # initialization params, output path, logger, random seed and torch.device
 args = init_args(sys.argv[1:])
-
-if args.model=="onei" or args.model=="bert_onei":
-    from utils.example_for_onei import Example
-else:
-    from utils.example import Example
 
 set_random_seed(args.seed)
 device = set_torch_device(args.device)
@@ -33,7 +26,10 @@ print("Use GPU with index %s" % (args.device) if args.device >= 0 else "Use CPU 
 start_time = time.time()
 train_path = os.path.join(args.dataroot, 'train.json')
 dev_path = os.path.join(args.dataroot, 'development.json')
-Example.configuration(args.dataroot, train_path=train_path, word2vec_path=args.word2vec_path,embedding_type=args.embedding_type)
+
+
+Example.configuration(args, train_path=train_path)
+
 train_dataset = Example.load_dataset(train_path,mode=args.train_data)
 dev_dataset = Example.load_dataset(dev_path,mode="asr")
 print("Load dataset and database finished, cost %.4fs ..." % (time.time() - start_time))
@@ -47,14 +43,8 @@ args.tag_pad_idx = Example.label_vocab.convert_tag_to_idx(PAD)
 
 if args.model=="baseline":
     TagModel = SLUTagging(args).to(device)
-elif args.model=="onei":
-    TagModel = OneiTagging(args).to(device)
-elif args.model =="newDecode":
-    TagModel = SLUTaggingNewDecode(args).to(device)
-elif args.model =="bert_onei":
-    TagModel = SLUBertOnei(args).to(device)
 elif args.model == "bert":
-    TagModel = SLUBertOnei(args).to(device)
+    TagModel = SLUBert_bertvocab(args).to(device)
 else:
     raise ValueError("No such tagging model")
 

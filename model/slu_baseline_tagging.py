@@ -2,6 +2,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.utils.rnn as rnn_utils
+from utils.decoder import decode_baseline,decode_new,decode_onei
 
 
 class SLUTagging(nn.Module):
@@ -31,40 +32,16 @@ class SLUTagging(nn.Module):
         return tag_output
 
     def decode(self, label_vocab, batch):
-        batch_size = len(batch)
-        labels = batch.labels
-        output = self.forward(batch)
-        prob = output[0]
-        predictions = []
-        for i in range(batch_size):
-            pred = torch.argmax(prob[i], dim=-1).cpu().tolist()
-            pred_tuple = []
-            idx_buff, tag_buff, pred_tags = [], [], []
-            pred = pred[:len(batch.utt[i])]
-            for idx, tid in enumerate(pred):
-                tag = label_vocab.convert_idx_to_tag(tid)
-                pred_tags.append(tag)
-                if (tag == 'O' or tag.startswith('B')) and len(tag_buff) > 0:
-                    slot = '-'.join(tag_buff[0].split('-')[1:])
-                    value = ''.join([batch.utt[i][j] for j in idx_buff])
-                    idx_buff, tag_buff = [], []
-                    pred_tuple.append(f'{slot}-{value}')
-                    if tag.startswith('B'):
-                        idx_buff.append(idx)
-                        tag_buff.append(tag)
-                elif tag.startswith('I') or tag.startswith('B'):
-                    idx_buff.append(idx)
-                    tag_buff.append(tag)
-            if len(tag_buff) > 0:
-                slot = '-'.join(tag_buff[0].split('-')[1:])
-                value = ''.join([batch.utt[i][j] for j in idx_buff])
-                pred_tuple.append(f'{slot}-{value}')
-            predictions.append(pred_tuple)
-        if len(output) == 1:
-            return predictions
+        if self.config.decode == "baseline":
+            return decode_baseline(self, label_vocab, batch)
+        elif self.config.decode == "newdecode":
+            return decode_new(self, label_vocab, batch)
+        elif self.config.decode == "onei":
+            return decode_onei(self, label_vocab, batch)
         else:
-            loss = output[1]
-            return predictions, labels, loss.cpu().item()
+            raise NotImplementedError("No such decoder")
+
+        
 
 
 class TaggingFNNDecoder(nn.Module):

@@ -47,7 +47,7 @@ class Vocab():
         return self.word2id.get(key, self.word2id[UNK])
 
 
-class LabelVocab():
+class LabelVocab_for_onei():
 
     def __init__(self, root):
         self.tag2idx, self.idx2tag = {}, {}

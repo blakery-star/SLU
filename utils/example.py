@@ -1,23 +1,29 @@
 import json
 
 from utils.vocab import Vocab, LabelVocab
+from utils.vocab_for_onei import LabelVocab_for_onei
 from utils.word2vec import Word2vecUtils
 from utils.bert2embd import Bert2vecUtils
 from utils.evaluator import Evaluator
+from transformers import BertTokenizer, BertConfig, BertForMaskedLM, BertForNextSentencePrediction
+from transformers import BertModel,AutoTokenizer,AutoModelForTokenClassification
+tokenizer = AutoTokenizer.from_pretrained("hfl/chinese-bert-wwm-ext")
+bert_model = BertModel.from_pretrained("hfl/chinese-bert-wwm-ext")
 
 class Example():
 
     @classmethod
-    def configuration(cls, root, train_path=None, word2vec_path=None, embedding_type='Bert_pretrained'):
+    def configuration(cls, args, train_path=None):
+        root = args.dataroot
+        word2vec_path = args.word2vec_path
         cls.evaluator = Evaluator()
         cls.word_vocab = Vocab(padding=True, unk=True, filepath=train_path)
-        if embedding_type == 'Bert_pretrained':
-            cls.word2vec = Bert2vecUtils()
-        elif embedding_type == 'WordVab_embedding':
-            cls.word2vec = Word2vecUtils(word2vec_path)
+        cls.word2vec = Word2vecUtils(word2vec_path)
+        if args.decode =="onei":
+            cls.label_vocab = LabelVocab_for_onei(root)
         else:
-            raise NotImplementedError
-        cls.label_vocab = LabelVocab(root)
+            cls.label_vocab = LabelVocab(root)
+        cls.args = args
 
     @classmethod
     def load_dataset(cls, data_path,mode="asr"):
@@ -50,9 +56,26 @@ class Example():
             value = self.slot[slot]
             bidx = self.utt.find(value)
             if bidx != -1:
-                self.tags[bidx: bidx + len(value)] = [f'I-{slot}'] * len(value)
+                if Example.args.decode == "onei":
+                    self.tags[bidx: bidx + len(value)] = [f'I'] * len(value)
+                else:
+                    self.tags[bidx: bidx + len(value)] = [f'I-{slot}'] * len(value)
                 self.tags[bidx] = f'B-{slot}'
         self.slotvalue = [f'{slot}-{value}' for slot, value in self.slot.items()]
         self.input_idx = [Example.word_vocab[c] for c in self.utt]
         l = Example.label_vocab
         self.tag_id = [l.convert_tag_to_idx(tag) for tag in self.tags]
+      
+
+        if Example.args.model == "bert":
+            utt_list = [word for word in self.utt]
+            for idx,word in enumerate(utt_list):
+                if word.isupper():
+                    word = word.lower()
+                    utt_list[idx] = word
+                if word == ' ':
+                    utt_list[idx] = '[SEP]'
+            # bert_token = tokenizer.tokenize(self.utt)
+            bert_id = tokenizer.convert_tokens_to_ids(utt_list)
+            self.bert_id = bert_id
+

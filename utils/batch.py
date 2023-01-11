@@ -2,24 +2,38 @@
 import torch
 
 
-def from_example_list(args, ex_list, device='cpu', train=True):
-    ex_list = sorted(ex_list, key=lambda x: len(x.input_idx), reverse=True)
-    batch = Batch(ex_list, device)
-    pad_idx = args.pad_idx
-    tag_pad_idx = args.tag_pad_idx
-    batch.utt = [ex.utt for ex in ex_list]
-    input_lens = [len(ex.input_idx) for ex in ex_list]
-    max_len = max(input_lens)
-    input_ids = [ex.input_idx + [pad_idx] * (max_len - len(ex.input_idx)) for ex in ex_list]
-    out_sets = []
-    for set_id in input_ids:
-        out_set = [ex_list[0].word_vocab.id2word[c] for c in set_id]
-        out_sets.append(out_set)
-    batch.out_sets = out_sets
-    batch.input_ids = torch.tensor(input_ids, dtype=torch.long, device=device)
+def from_example_list(args, ex_list, device='cpu', train=True, use_bert=False):
+    if use_bert:
+        ex_list = sorted(ex_list, key=lambda x: len(x.bert_id), reverse=True)
+        batch = Batch(ex_list, device)
+        pad_idx = args.pad_idx
+        tag_pad_idx = args.tag_pad_idx
+        batch.utt = [ex.utt for ex in ex_list]
+        input_lens = [len(ex.bert_id) for ex in ex_list]
+        max_len = max(input_lens)
+        input_ids = [ex.bert_id + [pad_idx] * (max_len - len(ex.bert_id)) for ex in ex_list]
+        batch.input_ids = torch.tensor(input_ids, dtype=torch.long, device=device).long()
+        batch.lengths = input_lens
+        batch.did = [ex.did for ex in ex_list]
+    else:
+        ex_list = sorted(ex_list, key=lambda x: len(x.input_idx), reverse=True)
+        batch = Batch(ex_list, device)
+        pad_idx = args.pad_idx
+        tag_pad_idx = args.tag_pad_idx
+        batch.utt = [ex.utt for ex in ex_list]
 
-    batch.lengths = input_lens
-    batch.did = [ex.did for ex in ex_list]
+        input_lens = [len(ex.input_idx) for ex in ex_list]
+        max_len = max(input_lens)
+        input_ids = [ex.input_idx + [pad_idx] * (max_len - len(ex.input_idx)) for ex in ex_list]
+        out_sets = []
+        for set_id in input_ids:
+            out_set = [ex_list[0].word_vocab.id2word[c] for c in set_id]
+            out_sets.append(out_set)
+        batch.out_sets = out_sets
+        batch.input_ids = torch.tensor(input_ids, dtype=torch.long, device=device)
+
+        batch.lengths = input_lens
+        batch.did = [ex.did for ex in ex_list]
 
     if train:
         batch.labels = [ex.slotvalue for ex in ex_list]
