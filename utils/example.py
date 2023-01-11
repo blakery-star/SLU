@@ -61,12 +61,17 @@ class Example():
         self.input_idx = [Example.word_vocab[c] for c in self.utt]
         l = Example.label_vocab
         self.tag_id = [l.convert_tag_to_idx(tag) for tag in self.tags]
+      
 
         if add_bert_:
-            for word in self.utt:
+            utt_list = [word for word in self.utt]
+            for idx,word in enumerate(utt_list):
                 if word.isupper():
                     word = word.lower()
-            bert_token = tokenizer.tokenize(self.utt)
-            bert_id = tokenizer.convert_tokens_to_ids(bert_token)
+                    utt_list[idx] = word
+                if word == ' ':
+                    utt_list[idx] = '[SEP]'
+            # bert_token = tokenizer.tokenize(self.utt)
+            bert_id = tokenizer.convert_tokens_to_ids(utt_list)
             self.bert_id = bert_id
 

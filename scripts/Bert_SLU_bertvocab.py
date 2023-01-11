@@ -32,8 +32,10 @@ print("Dataset size: train -> %d ; dev -> %d" % (len(train_dataset), len(dev_dat
 
 args.vocab_size = Example.word_vocab.vocab_size
 args.pad_idx = Example.word_vocab[PAD]
+
 args.num_tags = Example.label_vocab.num_tags
 args.tag_pad_idx = Example.label_vocab.convert_tag_to_idx(PAD)
+
 
 
 model = SLUBert_bertvocab(args).to(device)

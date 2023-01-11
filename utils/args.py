@@ -21,7 +21,7 @@ def add_argument_base(arg_parser):
     arg_parser.add_argument('--train_data', default="asr", help='which data for training, manu or asr')
     
     #### Training Hyperparams ####
-    arg_parser.add_argument('--batch_size', default=32, type=int, help='Batch size')
+    arg_parser.add_argument('--batch_size', default=64, type=int, help='Batch size')
     arg_parser.add_argument('--lr', type=float, default=1e-3, help='learning rate')
     arg_parser.add_argument('--max_epoch', type=int, default=100, help='terminate after maximum epochs')
     #### Common Encoder Hyperparams ####
