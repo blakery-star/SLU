@@ -3,13 +3,12 @@ import torch
 
 
 def from_example_list(args, ex_list, device='cpu', train=True, use_bert=False):
-
-    ex_list = sorted(ex_list, key=lambda x: len(x.input_idx), reverse=True)
-    batch = Batch(ex_list, device)
-    pad_idx = args.pad_idx
-    tag_pad_idx = args.tag_pad_idx
-    batch.utt = [ex.utt for ex in ex_list]
     if use_bert:
+        ex_list = sorted(ex_list, key=lambda x: len(x.bert_id), reverse=True)
+        batch = Batch(ex_list, device)
+        pad_idx = args.pad_idx
+        tag_pad_idx = args.tag_pad_idx
+        batch.utt = [ex.utt for ex in ex_list]
         input_lens = [len(ex.bert_id) for ex in ex_list]
         max_len = max(input_lens)
         input_ids = [ex.bert_id + [pad_idx] * (max_len - len(ex.bert_id)) for ex in ex_list]
@@ -17,6 +16,11 @@ def from_example_list(args, ex_list, device='cpu', train=True, use_bert=False):
         batch.lengths = input_lens
         batch.did = [ex.did for ex in ex_list]
     else:
+        ex_list = sorted(ex_list, key=lambda x: len(x.input_idx), reverse=True)
+        batch = Batch(ex_list, device)
+        pad_idx = args.pad_idx
+        tag_pad_idx = args.tag_pad_idx
+        batch.utt = [ex.utt for ex in ex_list]
 
         input_lens = [len(ex.input_idx) for ex in ex_list]
         max_len = max(input_lens)
