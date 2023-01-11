@@ -3,14 +3,20 @@ import json
 from utils.vocab_for_onei import Vocab, LabelVocab
 from utils.word2vec import Word2vecUtils
 from utils.evaluator import Evaluator
+from utils.bert2embd import Bert2vecUtils
 
 class Example():
 
     @classmethod
-    def configuration(cls, root, train_path=None, word2vec_path=None):
+    def configuration(cls, root, train_path=None, word2vec_path=None, embedding_type='Bert_pretrained'):
         cls.evaluator = Evaluator()
         cls.word_vocab = Vocab(padding=True, unk=True, filepath=train_path)
-        cls.word2vec = Word2vecUtils(word2vec_path)
+        if embedding_type == 'Bert_pretrained':
+            cls.word2vec = Bert2vecUtils()
+        elif embedding_type == 'WordVab_embedding':
+            cls.word2vec = Word2vecUtils(word2vec_path)
+        else:
+            raise NotImplementedError
         cls.label_vocab = LabelVocab(root)
 
     @classmethod

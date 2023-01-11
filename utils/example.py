@@ -2,21 +2,12 @@ import json
 
 from utils.vocab import Vocab, LabelVocab
 from utils.word2vec import Word2vecUtils
-<<<<<<< HEAD
-=======
 from utils.bert2embd import Bert2vecUtils
->>>>>>> origin/backup_gu
 from utils.evaluator import Evaluator
 
 class Example():
 
     @classmethod
-<<<<<<< HEAD
-    def configuration(cls, root, train_path=None, word2vec_path=None):
-        cls.evaluator = Evaluator()
-        cls.word_vocab = Vocab(padding=True, unk=True, filepath=train_path)
-        cls.word2vec = Word2vecUtils(word2vec_path)
-=======
     def configuration(cls, root, train_path=None, word2vec_path=None, embedding_type='Bert_pretrained'):
         cls.evaluator = Evaluator()
         cls.word_vocab = Vocab(padding=True, unk=True, filepath=train_path)
@@ -26,7 +17,6 @@ class Example():
             cls.word2vec = Word2vecUtils(word2vec_path)
         else:
             raise NotImplementedError
->>>>>>> origin/backup_gu
         cls.label_vocab = LabelVocab(root)
 
     @classmethod

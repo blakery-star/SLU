@@ -33,7 +33,7 @@ print("Use GPU with index %s" % (args.device) if args.device >= 0 else "Use CPU 
 start_time = time.time()
 train_path = os.path.join(args.dataroot, 'train.json')
 dev_path = os.path.join(args.dataroot, 'development.json')
-Example.configuration(args.dataroot, train_path=train_path, word2vec_path=args.word2vec_path)
+Example.configuration(args.dataroot, train_path=train_path, word2vec_path=args.word2vec_path,embedding_type=args.embedding_type)
 train_dataset = Example.load_dataset(train_path,mode=args.train_data)
 dev_dataset = Example.load_dataset(dev_path,mode="asr")
 print("Load dataset and database finished, cost %.4fs ..." % (time.time() - start_time))

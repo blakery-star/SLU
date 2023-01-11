@@ -7,17 +7,10 @@ def from_example_list(args, ex_list, device='cpu', train=True):
     batch = Batch(ex_list, device)
     pad_idx = args.pad_idx
     tag_pad_idx = args.tag_pad_idx
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/backup_gu
     batch.utt = [ex.utt for ex in ex_list]
     input_lens = [len(ex.input_idx) for ex in ex_list]
     max_len = max(input_lens)
     input_ids = [ex.input_idx + [pad_idx] * (max_len - len(ex.input_idx)) for ex in ex_list]
-<<<<<<< HEAD
-    batch.input_ids = torch.tensor(input_ids, dtype=torch.long, device=device)
-=======
     out_sets = []
     for set_id in input_ids:
         out_set = [ex_list[0].word_vocab.id2word[c] for c in set_id]
@@ -25,7 +18,6 @@ def from_example_list(args, ex_list, device='cpu', train=True):
     batch.out_sets = out_sets
     batch.input_ids = torch.tensor(input_ids, dtype=torch.long, device=device)
 
->>>>>>> origin/backup_gu
     batch.lengths = input_lens
     batch.did = [ex.did for ex in ex_list]
 
