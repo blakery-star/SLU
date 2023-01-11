@@ -3,6 +3,10 @@
 import numpy as np
 from utils.vocab import PAD, UNK
 import torch
+<<<<<<< HEAD
+=======
+import sys
+>>>>>>> origin/backup_gu
 
 class Word2vecUtils():
 
@@ -21,6 +25,15 @@ class Word2vecUtils():
                 module.weight.data[vocab[PAD]] = torch.zeros(emb_size, dtype=torch.float, device=device)
                 continue
             word_emb = self.word2vec.get(word, self.word2vec[UNK])
+<<<<<<< HEAD
+=======
+            # if word == 'm':
+            #     print('yes')
+            #     print(vocab[word])
+            #     sys.exit(0)
+                
+            print(word,word_emb[0])
+>>>>>>> origin/backup_gu
             module.weight.data[vocab[word]] = torch.tensor(word_emb, dtype=torch.float, device=device)
         return 1 - outliers / float(len(vocab))
 

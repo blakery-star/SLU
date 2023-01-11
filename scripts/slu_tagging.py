@@ -1,6 +1,6 @@
 #coding=utf8
 import sys, os, time, gc, json
-from torch.optim import Adam
+from torch.optim import Adam,AdamW
 
 install_path = os.path.abspath(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(install_path)
@@ -13,11 +13,13 @@ from utils.vocab import PAD
 from model.slu_baseline_tagging import SLUTagging
 from model.slu_tagging_onei import OneiTagging
 from model.slu_tagging_new_decoder import SLUTaggingNewDecode
+from model.slu_bert_onei import SLUBertOnei
+from model.slu_bert import SLUBert
 
 # initialization params, output path, logger, random seed and torch.device
 args = init_args(sys.argv[1:])
 
-if args.model=="onei":
+if args.model=="onei" or args.model=="bert_onei":
     from utils.example_for_onei import Example
 else:
     from utils.example import Example
@@ -49,6 +51,10 @@ elif args.model=="onei":
     TagModel = OneiTagging(args).to(device)
 elif args.model =="newDecode":
     TagModel = SLUTaggingNewDecode(args).to(device)
+elif args.model =="bert_onei":
+    TagModel = SLUBertOnei(args).to(device)
+elif args.model == "bert":
+    TagModel = SLUBertOnei(args).to(device)
 else:
     raise ValueError("No such tagging model")
 

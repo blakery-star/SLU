@@ -9,7 +9,11 @@ from utils.args import init_args
 from utils.initialization import *
 from utils.example import Example
 from utils.batch import from_example_list
+<<<<<<< HEAD
 from utils.vocab import PAD
+=======
+from utils.vocab import PAD,UNK,EOS,BOS
+>>>>>>> origin/backup_gu
 from model.slu_baseline_tagging import SLUTagging
 
 # initialization params, output path, logger, random seed and torch.device
@@ -23,7 +27,11 @@ print("Use GPU with index %s" % (args.device) if args.device >= 0 else "Use CPU 
 start_time = time.time()
 train_path = os.path.join(args.dataroot, 'train.json')
 dev_path = os.path.join(args.dataroot, 'development.json')
+<<<<<<< HEAD
 Example.configuration(args.dataroot, train_path=train_path, word2vec_path=args.word2vec_path)
+=======
+Example.configuration(args.dataroot, train_path=train_path, word2vec_path=args.word2vec_path,embedding_type=args.embedding_type)
+>>>>>>> origin/backup_gu
 train_dataset = Example.load_dataset(train_path)
 dev_dataset = Example.load_dataset(dev_path)
 print("Load dataset and database finished, cost %.4fs ..." % (time.time() - start_time))
@@ -38,6 +46,10 @@ args.tag_pad_idx = Example.label_vocab.convert_tag_to_idx(PAD)
 model = SLUTagging(args).to(device)
 Example.word2vec.load_embeddings(model.word_embed, Example.word_vocab, device=device)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/backup_gu
 if args.testing:
     check_point = torch.load(open('model.bin', 'rb'), map_location=device)
     model.load_state_dict(check_point['model'])

@@ -44,9 +44,17 @@ class Vocab():
         return len(self.word2id)
 
     def __getitem__(self, key):
+<<<<<<< HEAD
         return self.word2id.get(key, self.word2id[UNK])
 
 
+=======
+    
+        return self.word2id.get(key, self.word2id[UNK])
+
+
+
+>>>>>>> origin/backup_gu
 class LabelVocab():
 
     def __init__(self, root):
