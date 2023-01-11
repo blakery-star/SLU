@@ -1,6 +1,6 @@
 #coding=utf8
 import sys, os, time, gc, json
-from torch.optim import Adam
+from torch.optim import Adam,lr_scheduler
 
 install_path = os.path.abspath(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(install_path)
@@ -130,6 +130,8 @@ if not args.testing:
         start_time = time.time()
         metrics, dev_loss = decode('dev')
         dev_acc, dev_fscore = metrics['acc'], metrics['fscore']
+        scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, 'max',factor=0.1, patience=3, verbose=True)
+        scheduler.step(dev_acc)
         print('Evaluation: \tEpoch: %d\tTime: %.4f\tDev acc: %.2f\tDev fscore(p/r/f): (%.2f/%.2f/%.2f)' % (i, time.time() - start_time, dev_acc, dev_fscore['precision'], dev_fscore['recall'], dev_fscore['fscore']))
         if dev_acc > best_result['dev_acc']:
             best_result['dev_loss'], best_result['dev_acc'], best_result['dev_f1'], best_result['iter'] = dev_loss, dev_acc, dev_fscore, i

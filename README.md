@@ -9,7 +9,10 @@
     
 在根目录下运行
 
-    python scripts/slu_baseline.py
+    1. 对word_vocab 用原来的tokenize 经过bert得到embedding 速度快 python scripts/slu_baseline.py --embedding Bert_pretrained
+    2. 一句话整体输入bert得到embedding(原来的tokenize) python scripts/Bert_SLU.py
+    3. 一句话整体输入bert得到embedding(bert的tokenize) python scripts/Bert_SLU_bertvocab.py
+
 
 ### 代码说明
 

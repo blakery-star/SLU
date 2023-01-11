@@ -28,8 +28,7 @@ class Bert2vecUtils():
             if word == UNK:
                 word = '[UNK]'
             if word == ' ':
-                module.weight.data[vocab[word]] = torch.zeros(emb_size, dtype=torch.float, device=device)
-                continue
+                word = '[SEP]'
             # use pretrained bert to get the word embedding 
             tokens = self.tokenizer.tokenize(word)
             input_ids = self.tokenizer.convert_tokens_to_ids(tokens)
