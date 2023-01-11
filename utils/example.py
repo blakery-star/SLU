@@ -4,6 +4,10 @@ from utils.vocab import Vocab, LabelVocab
 from utils.word2vec import Word2vecUtils
 from utils.bert2embd import Bert2vecUtils
 from utils.evaluator import Evaluator
+from transformers import BertTokenizer, BertConfig, BertForMaskedLM, BertForNextSentencePrediction
+from transformers import BertModel,AutoTokenizer,AutoModelForTokenClassification
+tokenizer = AutoTokenizer.from_pretrained("hfl/chinese-bert-wwm-ext")
+bert_model = BertModel.from_pretrained("hfl/chinese-bert-wwm-ext")
 
 class Example():
 
@@ -19,17 +23,18 @@ class Example():
             raise NotImplementedError
         cls.label_vocab = LabelVocab(root)
 
+
     @classmethod
-    def load_dataset(cls, data_path,mode="asr"):
+    def load_dataset(cls, data_path,mode="asr",add_bert=False):
         dataset = json.load(open(data_path, 'r',encoding='utf-8'))
         examples = []
         for di, data in enumerate(dataset):
             for ui, utt in enumerate(data):
-                ex = cls(utt, f'{di}-{ui}',mode=mode)
+                ex = cls(utt, f'{di}-{ui}',mode=mode,add_bert_=add_bert)
                 examples.append(ex)
         return examples
 
-    def __init__(self, ex: dict, did, mode):
+    def __init__(self, ex: dict, did, mode,add_bert_=False):
         super(Example, self).__init__()
         self.ex = ex
         self.did = did
@@ -56,3 +61,12 @@ class Example():
         self.input_idx = [Example.word_vocab[c] for c in self.utt]
         l = Example.label_vocab
         self.tag_id = [l.convert_tag_to_idx(tag) for tag in self.tags]
+
+        if add_bert_:
+            for word in self.utt:
+                if word.isupper():
+                    word = word.lower()
+            bert_token = tokenizer.tokenize(self.utt)
+            bert_id = tokenizer.convert_tokens_to_ids(bert_token)
+            self.bert_id = bert_id
+

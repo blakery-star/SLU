@@ -11,7 +11,7 @@ from utils.example import Example
 from utils.batch import from_example_list
 from utils.vocab import PAD,UNK,EOS,BOS
 from model.slu_baseline_tagging import SLUTagging
-from model.slu_bert import SLUBert
+from model.slu_bert_bertvocab import SLUBert_bertvocab
 
 # initialization params, output path, logger, random seed and torch.device
 args = init_args(sys.argv[1:])
@@ -36,7 +36,7 @@ args.num_tags = Example.label_vocab.num_tags
 args.tag_pad_idx = Example.label_vocab.convert_tag_to_idx(PAD)
 
 
-model = SLUBert(args).to(device)
+model = SLUBert_bertvocab(args).to(device)
 
 
 
@@ -62,7 +62,7 @@ def decode(choice):
     with torch.no_grad():
         for i in range(0, len(dataset), args.batch_size):
             cur_dataset = dataset[i: i + args.batch_size]
-            current_batch = from_example_list(args, cur_dataset, device, train=True)
+            current_batch = from_example_list(args, cur_dataset, device, train=True, use_bert=True)
             pred, label, loss = model.decode(Example.label_vocab, current_batch)
             for j in range(len(current_batch)):
                 if any([l.split('-')[-1] not in current_batch.utt[j] for l in pred[j]]):
@@ -85,7 +85,7 @@ def predict():
     with torch.no_grad():
         for i in range(0, len(test_dataset), args.batch_size):
             cur_dataset = test_dataset[i: i + args.batch_size]
-            current_batch = from_example_list(args, cur_dataset, device, train=False)
+            current_batch = from_example_list(args, cur_dataset, device, train=False, use_bert=True)
             pred = model.decode(Example.label_vocab, current_batch)
             for pi, p in enumerate(pred):
                 did = current_batch.did[pi]
@@ -114,7 +114,7 @@ if not args.testing:
         count = 0
         for j in range(0, nsamples, step_size):
             cur_dataset = [train_dataset[k] for k in train_index[j: j + step_size]]
-            current_batch = from_example_list(args, cur_dataset, device, train=True)
+            current_batch = from_example_list(args, cur_dataset, device, train=True,use_bert=True)
             output, loss = model(current_batch)
             epoch_loss += loss.item()
             loss.backward()

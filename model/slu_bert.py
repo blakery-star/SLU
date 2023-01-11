@@ -37,8 +37,7 @@ class SLUBert(nn.Module):
                     out_set[idx] = '[UNK]'
                 if word == PAD:
                     out_set[idx] = '[PAD]'
-                if word == ' ':
-                   print(out_set)
+                
             bert_input = self.tokenizer.convert_tokens_to_ids(out_set)
             bert_input_pt = torch.tensor(bert_input).long().unsqueeze(0).to(self.device)
             with torch.no_grad():
