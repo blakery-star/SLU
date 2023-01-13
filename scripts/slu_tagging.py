@@ -57,7 +57,8 @@ elif args.model == "bert":
 else:
     raise ValueError("No such tagging model")
 
-
+if not os.path.exists("./save_model"):
+    os.makedirs("./save_model")
 
 model_file_path = os.path.join('./save_model',args.model+"_"+args.decode+"_"+args.train_data+"_"+args.encoder_cell+"_tune_batch_size{}_lr{}_max_epoch{}_dropout{}_embed_size{}_hidden_size{}_num_layer{}_seed{}".format(args.tune,args.batch_size,args.lr,args.max_epoch,args.dropout,args.embed_size,args.hidden_size,args.num_layer,args.seed))
 model_path=os.path.join(model_file_path,"model.bin")
