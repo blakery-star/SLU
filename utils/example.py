@@ -45,8 +45,8 @@ class Example():
             self.utt = ex['manual_transcript']
         else:
             self.utt = ex['asr_1best']
-        # if Example.args.model == "bert":
-        #     self.utt = self.utt.replace(' ','')
+        if Example.args.out_blank:
+            self.utt = self.utt.replace(' ','')
         
         self.slot = {}
         for label in ex['semantic']:

@@ -34,7 +34,7 @@ def add_argument_base(arg_parser):
     #### Training Hyperparams ####
     arg_parser.add_argument('--batch_size', default=64, type=int, help='Batch size')
     arg_parser.add_argument('--lr', type=float, default=1e-3, help='learning rate')
-    arg_parser.add_argument('--max_epoch', type=int, default=100, help='terminate after maximum epochs')
+    arg_parser.add_argument('--max_epoch', type=int, default=200, help='terminate after maximum epochs')
     #### Common Encoder Hyperparams ####
     arg_parser.add_argument('--encoder_cell', default='LSTM', choices=['LSTM', 'GRU', 'RNN'], help='root of data')
     arg_parser.add_argument('--dropout', type=float, default=0.2, help='feature dropout rate')
@@ -44,5 +44,12 @@ def add_argument_base(arg_parser):
 
     arg_parser.add_argument('--pretrained_model', default="bert-base-chinese", choices=["bert-base-chinese","hfl/chinese-bert-wwm-ext","hfl/chinese-roberta-wwm-ext","chinese-macbert-base"])
     arg_parser.add_argument('--tune', action='store_true', default=False)
+    arg_parser.add_argument('--finetune', action='store_true', default=False)
+    arg_parser.add_argument('--out_blank', action='store_true', default=False)
+    arg_parser.add_argument('--add_att', action='store_true', default=False)
+
+    arg_parser.add_argument('--num_head', type=int, default=1, help='Number of head in attention.')
+    
+ 
 
     return arg_parser

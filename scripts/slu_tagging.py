@@ -60,7 +60,7 @@ else:
 if not os.path.exists("./save_model"):
     os.makedirs("./save_model")
 
-model_file_path = os.path.join('./save_model',args.model+"_"+args.decode+"_"+args.train_data+"_"+args.encoder_cell+"_tune_batch_size{}_lr{}_max_epoch{}_dropout{}_embed_size{}_hidden_size{}_num_layer{}_seed{}".format(args.tune,args.batch_size,args.lr,args.max_epoch,args.dropout,args.embed_size,args.hidden_size,args.num_layer,args.seed))
+model_file_path = os.path.join('./save_model',args.model+"_"+args.pretrained_model+"_"+args.decode+"_"+args.train_data+"_"+args.encoder_cell+"_attention{}_tune{}_batch_size{}_lr{}_max_epoch{}_dropout{}_embed_size{}_hidden_size{}_num_layer{}_seed{}_outblank{}".format(args.add_att,args.tune,args.batch_size,args.lr,args.max_epoch,args.dropout,args.embed_size,args.hidden_size,args.num_layer,args.seed,args.out_blank))
 model_path=os.path.join(model_file_path,"model.bin")
 
 if args.testing:
@@ -70,8 +70,22 @@ if args.testing:
 
 def set_optimizer(model, args):
     params = [(n, p) for n, p in model.named_parameters() if p.requires_grad]
-    grouped_params = [{'params': list(set([p for n, p in params]))}]
-    optimizer = Adam(grouped_params, lr=args.lr)
+    if not args.finetune:
+        grouped_params = [{'params': list(set([p for n, p in params]))}]
+        optimizer = Adam(grouped_params, lr=args.lr)
+    else:
+        assert args.tune == True
+        bert_model_param_list = []
+        decoder_param_list = []
+        for param in params:
+            if "bert_model" in param[0]:
+                bert_model_param_list.append(param[1])
+            else:
+                decoder_param_list.append(param[1])
+        bert_grouped_params = list(set([p for p in bert_model_param_list]))
+        decoder_grouped_params = list(set([p for p in decoder_param_list]))
+        optimizer = Adam([{'params': decoder_grouped_params},
+                         {'params': bert_grouped_params, 'lr': 0.01*args.lr}], lr=args.lr)
     return optimizer
 
 
