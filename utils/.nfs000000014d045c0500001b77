@@ -7,8 +7,8 @@ from utils.bert2embd import Bert2vecUtils
 from utils.evaluator import Evaluator
 from transformers import BertTokenizer, BertConfig, BertForMaskedLM, BertForNextSentencePrediction
 from transformers import BertModel,AutoTokenizer,AutoModelForTokenClassification
-
-
+tokenizer = AutoTokenizer.from_pretrained("hfl/chinese-bert-wwm-ext")
+bert_model = BertModel.from_pretrained("hfl/chinese-bert-wwm-ext")
 
 class Example():
 
@@ -24,7 +24,6 @@ class Example():
         else:
             cls.label_vocab = LabelVocab(root)
         cls.args = args
-        cls.tokenizer = AutoTokenizer.from_pretrained(args.pretrained_model)
 
     @classmethod
     def load_dataset(cls, data_path,mode="asr"):
@@ -45,8 +44,6 @@ class Example():
             self.utt = ex['manual_transcript']
         else:
             self.utt = ex['asr_1best']
-        if Example.args.out_blank:
-            self.utt = self.utt.replace(' ','')
         
         self.slot = {}
         for label in ex['semantic']:
@@ -77,9 +74,7 @@ class Example():
                     utt_list[idx] = word
                 if word == ' ':
                     utt_list[idx] = '[SEP]'
-                
             # bert_token = tokenizer.tokenize(self.utt)
-            bert_id = Example.tokenizer.convert_tokens_to_ids(utt_list)
+            bert_id = tokenizer.convert_tokens_to_ids(utt_list)
             self.bert_id = bert_id
 
-            

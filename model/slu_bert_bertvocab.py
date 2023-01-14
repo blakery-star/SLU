@@ -6,6 +6,7 @@ from transformers import BertTokenizer, BertConfig, BertForMaskedLM, BertForNext
 from transformers import BertModel,AutoTokenizer,AutoModelForTokenClassification
 from utils.vocab import PAD, UNK
 from utils.decoder import decode_baseline,decode_new,decode_onei
+from utils.pos_encoding import PositionalEncoding
 
 
 
@@ -18,8 +19,8 @@ class SLUBert_bertvocab(nn.Module):
         self.word_embed = nn.Embedding(config.vocab_size, config.embed_size, padding_idx=0)
         self.rnn = getattr(nn, self.cell)(config.embed_size, config.hidden_size // 2, num_layers=config.num_layer, bidirectional=True, batch_first=True)
         self.dropout_layer = nn.Dropout(p=config.dropout)
-        self.output_layer = TaggingFNNDecoder(config.hidden_size, config.num_tags, config.tag_pad_idx)
-        self.bert_model = BertModel.from_pretrained("hfl/chinese-bert-wwm-ext")
+        self.output_layer = TaggingFNNDecoder(config.hidden_size, config.num_tags, config.tag_pad_idx,config.add_att,config.num_head)
+        self.bert_model = BertModel.from_pretrained(config.pretrained_model)
         self.device = config.device
 
     def forward(self, batch):
@@ -32,9 +33,13 @@ class SLUBert_bertvocab(nn.Module):
         embeds = torch.zeros(B,max(lengths),self.config.embed_size).to(self.device)
         
         for batch_id,input_id in enumerate(input_ids[:]):
-            with torch.no_grad():
+            if self.config.tune:
                 embed = self.bert_model(input_id.unsqueeze(0)).last_hidden_state[0]
                 embeds[batch_id] = embed
+            else :
+                with torch.no_grad():
+                    embed = self.bert_model(input_id.unsqueeze(0)).last_hidden_state[0]
+                    embeds[batch_id] = embed
         
         packed_inputs = rnn_utils.pack_padded_sequence(embeds, lengths, batch_first=True, enforce_sorted=True)
         packed_rnn_out, h_t_c_t = self.rnn(packed_inputs)  # bsize x seqlen x dim
@@ -57,15 +62,24 @@ class SLUBert_bertvocab(nn.Module):
             raise NotImplementedError("No such decoder")
 
 
+
 class TaggingFNNDecoder(nn.Module):
 
-    def __init__(self, input_size, num_tags, pad_id):
+    def __init__(self, input_size, num_tags, pad_id,add_att=False,num_head=1):
         super(TaggingFNNDecoder, self).__init__()
         self.num_tags = num_tags
         self.output_layer = nn.Linear(input_size, num_tags)
         self.loss_fct = nn.CrossEntropyLoss(ignore_index=pad_id)
+        self.add_att = add_att
+        if add_att:
+            self.attention = nn.MultiheadAttention(embed_dim=input_size, num_heads=num_head, dropout=0.2, batch_first=True)
+            self.pos_encoding = PositionalEncoding(dim=input_size)
 
     def forward(self, hiddens, mask, labels=None):
+        
+        if self.add_att:
+            hiddens = self.pos_encoding(hiddens)
+            hiddens = self.attention(hiddens,hiddens,hiddens)[0]
         logits = self.output_layer(hiddens)
         logits += (1 - mask).unsqueeze(-1).repeat(1, 1, self.num_tags) * -1e32
         prob = torch.softmax(logits, dim=-1)
