@@ -40,7 +40,7 @@ class CSCDataset():
 
         self.utt = ex['asr_1best']
         self.label = ex['manual_transcript']
-        self.slot = {}
+        self.slot = dict()
         for label in ex['semantic']:
             act_slot = f'{label[0]}-{label[1]}'
             if len(label) == 3:

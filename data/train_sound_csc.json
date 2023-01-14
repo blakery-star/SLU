@@ -941,7 +941,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航去杭州市萧山机场b楼",
-            "asr_1best": "导航去杭州市萧山机场一楼",
+            "asr_1best": "导航去杭州市萧山机场b楼",
             "semantic": [
                 [
                     "inform",
@@ -1107,7 +1107,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(unknown)",
-            "asr_1best": "南线文源社区菁中学",
+            "asr_1best": "南县文源社区菁中学",
             "semantic": []
         },
         {
@@ -2020,7 +2020,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "(unknown)双河镇",
-            "asr_1best": "彬县双河镇",
+            "asr_1best": "阴县双河镇",
             "semantic": []
         },
         {
@@ -2310,7 +2310,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "去和阳桥镇派出所",
-            "asr_1best": "去和尚桥镇派出所",
+            "asr_1best": "去和阳桥镇派出所",
             "semantic": [
                 [
                     "inform",
@@ -2324,7 +2324,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航到",
-            "asr_1best": "导航到金厂",
+            "asr_1best": "导航到金昌",
             "semantic": [
                 [
                     "inform",
@@ -2395,7 +2395,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "合肥市望江东路桐城南路桐江新村",
-            "asr_1best": "合肥市望江东路桐城南路东兴新村",
+            "asr_1best": "合肥市望江东路桐城南路桐江新村",
             "semantic": [
                 [
                     "inform",
@@ -2739,7 +2739,7 @@
         {
             "utt_id": 7,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "到金华学生证挂",
+            "asr_1best": "到金华市学生证挂",
             "semantic": []
         },
         {
@@ -2874,7 +2874,7 @@
         {
             "utt_id": 9,
             "manual_transcript": "小奇",
-            "asr_1best": "小时",
+            "asr_1best": "小齐",
             "semantic": []
         }
     ],
@@ -3307,7 +3307,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航到宜州市",
-            "asr_1best": "导航到渝州是",
+            "asr_1best": "导航到宜州是",
             "semantic": [
                 [
                     "inform",
@@ -3841,7 +3841,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "哦叮咚你好嗯川汇区",
-            "asr_1best": "哦江东你好嗯川汇区",
+            "asr_1best": "哦丁东你好嗯川汇区",
             "semantic": [
                 [
                     "inform",
@@ -4890,7 +4890,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "安能物流园物流公司",
-            "asr_1best": "天安你好武刘源沐流公司",
+            "asr_1best": "安安你好武刘源沐流公司",
             "semantic": [
                 [
                     "inform",
@@ -5056,7 +5056,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "到(unknown)海鲜批发市场",
-            "asr_1best": "到聚福源螺海鲜批发市场",
+            "asr_1best": "到聚福园螺海鲜批发市场",
             "semantic": [
                 [
                     "inform",
@@ -5117,7 +5117,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "开导航关岭布依族苗族自治县",
-            "asr_1best": "开导航关坪医学院自治县",
+            "asr_1best": "开导航关岭医学院自治县",
             "semantic": [
                 [
                     "inform",
@@ -5436,7 +5436,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我要去华山",
-            "asr_1best": "我要去华山",
+            "asr_1best": "我要去花山",
             "semantic": [
                 [
                     "inform",
@@ -6014,7 +6014,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "妈中欢口港",
+            "asr_1best": "妈中山口港",
             "semantic": []
         },
         {
@@ -7194,7 +7194,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "去林沙市",
-            "asr_1best": "西平沙市",
+            "asr_1best": "西林沙市",
             "semantic": [
                 [
                     "inform",
@@ -7265,7 +7265,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "神州你好",
-            "asr_1best": "滕州你好",
+            "asr_1best": "神州你好",
             "semantic": []
         },
         {
@@ -9254,7 +9254,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "山西省阳泉市南阳胜景区",
-            "asr_1best": "山西省阳泉市南阳市景区",
+            "asr_1best": "山西省阳泉市南阳胜景区",
             "semantic": [
                 [
                     "inform",
@@ -9319,7 +9319,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航中坡国家森园",
-            "asr_1best": "导航中坡国家尊园",
+            "asr_1best": "导航中坡国家森园",
             "semantic": [
                 [
                     "inform",
@@ -10078,7 +10078,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我们要去(unknown)小区",
-            "asr_1best": "我们要去兰是中山小区",
+            "asr_1best": "我们要去兰是中安小区",
             "semantic": [
                 [
                     "inform",
@@ -10451,7 +10451,7 @@
         {
             "utt_id": 4,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "渝州温凭什么减",
+            "asr_1best": "随州温凭什么减",
             "semantic": []
         },
         {
@@ -10463,7 +10463,7 @@
         {
             "utt_id": 6,
             "manual_transcript": "西安(unknown)海棠镇定位一下",
-            "asr_1best": "西安华城保健部家得家园",
+            "asr_1best": "西安华城保健部家得潘家园",
             "semantic": []
         }
     ],
@@ -10859,7 +10859,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "新郑市薛店镇",
-            "asr_1best": "江东是薛店镇",
+            "asr_1best": "京东是薛店镇",
             "semantic": [
                 [
                     "inform",
@@ -11662,7 +11662,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "闭导航(side)真不靠谱",
-            "asr_1best": "碧导航浦口区",
+            "asr_1best": "碧导航浦口",
             "semantic": [
                 [
                     "inform",
@@ -11695,7 +11695,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "神州给我导航辉县宝泉水库",
-            "asr_1best": "滕州我导航辉县宝泉水库",
+            "asr_1best": "神州我导航辉县宝泉水库",
             "semantic": [
                 [
                     "inform",
@@ -12269,7 +12269,7 @@
         {
             "utt_id": 4,
             "manual_transcript": "去东平安大队东平安村",
-            "asr_1best": "去东平安大队东北山村",
+            "asr_1best": "去东平安大队东北安村",
             "semantic": [
                 [
                     "inform",
@@ -12982,7 +12982,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "迁西县金波乡金坡",
-            "asr_1best": "迁西县金坡乡金坡",
+            "asr_1best": "迁西县金波乡金波",
             "semantic": [
                 [
                     "inform",
@@ -12994,7 +12994,7 @@
         {
             "utt_id": 4,
             "manual_transcript": "(side)自己在家泡买原料",
-            "asr_1best": "美林六",
+            "asr_1best": "美联六",
             "semantic": []
         },
         {
@@ -13783,7 +13783,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "导航到小胡庄",
-            "asr_1best": "导航到小徐庄",
+            "asr_1best": "导航到小胡庄",
             "semantic": [
                 [
                     "inform",
@@ -14076,7 +14076,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "小安请导航到(unknown)",
-            "asr_1best": "小山请导航到高源龙",
+            "asr_1best": "小安请导航到高源龙",
             "semantic": [
                 [
                     "inform",
@@ -14181,7 +14181,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航到滨海县玉龙路",
-            "asr_1best": "导航到滨海县陆良",
+            "asr_1best": "导航到滨海县玉良",
             "semantic": [
                 [
                     "inform",
@@ -14233,7 +14233,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "小智导航",
-            "asr_1best": "小镇导航",
+            "asr_1best": "小智导航",
             "semantic": [
                 [
                     "inform",
@@ -15154,7 +15154,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(side)东路到东三环中路有四点四公里的拥堵那么西三环北路呢也是北向南的方向从",
-            "asr_1best": "东路到东三环中路有四点四公里的拥堵那么三环北路呢也是北向南的方向从",
+            "asr_1best": "东路到东三环中路有四点四公里的拥堵那么西三环北路呢也是北向南的方向从",
             "semantic": []
         },
         {
@@ -16379,7 +16379,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "河南",
+            "asr_1best": "河南岸",
             "semantic": []
         }
     ],
@@ -16387,7 +16387,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(unknown)导航",
-            "asr_1best": "是直接园渝北区导航",
+            "asr_1best": "是直接园北区导航",
             "semantic": [
                 [
                     "inform",
@@ -16911,7 +16911,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "海昌挂啊",
+            "asr_1best": "海川挂啊",
             "semantic": []
         },
         {
@@ -16977,7 +16977,7 @@
         {
             "utt_id": 13,
             "manual_transcript": "尚德路和长江路路口",
-            "asr_1best": "尚德路长江路路口",
+            "asr_1best": "尚德路和长江路路口",
             "semantic": [
                 [
                     "inform",
@@ -16989,7 +16989,7 @@
         {
             "utt_id": 14,
             "manual_transcript": "(unknown)德大道或长江的路口胶州开发区",
-            "asr_1best": "尚德路大道火长江路路口交叉口八区",
+            "asr_1best": "尚德大道火长江路路口交叉口八区",
             "semantic": [
                 [
                     "inform",
@@ -17779,7 +17779,7 @@
         {
             "utt_id": 10,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "你好小坝因为媚的第二",
+            "asr_1best": "你好小必因为媚的第二",
             "semantic": []
         }
     ],
@@ -17834,7 +17834,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "呼叫神州",
-            "asr_1best": "呼叫滕州",
+            "asr_1best": "呼叫神州",
             "semantic": []
         }
     ],
@@ -18023,7 +18023,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "义堂镇堰家村",
-            "asr_1best": "义堂镇堰家坤",
+            "asr_1best": "义堂镇堰家村",
             "semantic": [
                 [
                     "inform",
@@ -18501,7 +18501,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(side)，轻工南路九号(side)",
-            "asr_1best": "流动不不在大连到湖南海岸知道了请问功能路九号",
+            "asr_1best": "流动不不在大连到湖南海纳知道了请问功能路九号",
             "semantic": [
                 [
                     "inform",
@@ -18883,7 +18883,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "关闭导航(robot)父母看完了(unknown)差不多了(unknown)下一步就是家里家里那位家里老公了呀嗯哦那这个断的还真的有点儿彻底哦就是咱们长大了(unknown)就想啊(unknown)",
-            "asr_1best": "阜康市关闭导航彻底长县了",
+            "asr_1best": "阜康关闭导航彻底长大了",
             "semantic": [
                 [
                     "inform",
@@ -19651,7 +19651,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "导航到五堡社区",
-            "asr_1best": "导航到五堡市区",
+            "asr_1best": "导航到五堡四区",
             "semantic": [
                 [
                     "inform",
@@ -20140,7 +20140,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "去羊卓雍错",
-            "asr_1best": "去杨庄村错",
+            "asr_1best": "去杨庄雍错",
             "semantic": [
                 [
                     "inform",
@@ -20248,7 +20248,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "(side)(unknown)渭阳西路吗渭阳西路(unknown)",
-            "asr_1best": "微信渭南西路吗",
+            "asr_1best": "微信渭阳西路吗",
             "semantic": []
         },
         {
@@ -20576,7 +20576,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "梅河书吧",
+            "asr_1best": "梅湖书吧",
             "semantic": []
         },
         {
@@ -21079,7 +21079,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "北京农效禽业公司",
-            "asr_1best": "北京农效企业公司",
+            "asr_1best": "北京农效禽业公司",
             "semantic": [
                 [
                     "inform",
@@ -21214,7 +21214,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "去鄂城江碧路打开地图去鄂鄂城江碧路",
-            "asr_1best": "去二层江碧路打开地图只乐盛嘉兴的",
+            "asr_1best": "去二层江碧路打开地图只乐盛嘉宾的",
             "semantic": [
                 [
                     "inform",
@@ -21629,7 +21629,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航到市区自贡市区",
-            "asr_1best": "导航到市区自贡市区",
+            "asr_1best": "导航到四区自贡市区",
             "semantic": [
                 [
                     "inform",
@@ -21732,7 +21732,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "你好小来",
-            "asr_1best": "你好小寨",
+            "asr_1best": "你好小赛",
             "semantic": []
         },
         {
@@ -22373,7 +22373,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "三福吗",
+            "asr_1best": "三国吗",
             "semantic": []
         },
         {
@@ -22397,7 +22397,7 @@
         {
             "utt_id": 6,
             "manual_transcript": "英德英德市桥头镇",
-            "asr_1best": "英德英德设桥头镇",
+            "asr_1best": "阴德阴德设桥头镇",
             "semantic": [
                 [
                     "inform",
@@ -24331,13 +24331,13 @@
         {
             "utt_id": 5,
             "manual_transcript": "(side)(unknown)那种(unknown)和那种嗯",
-            "asr_1best": "龙湖塘和内容饿",
+            "asr_1best": "龙虎塘和内容饿",
             "semantic": []
         },
         {
             "utt_id": 6,
             "manual_transcript": "(side)他就是我也不懂反正我觉得他这边做的比",
-            "asr_1best": "泰州市五爱不懂反正我觉得她这般做的逼",
+            "asr_1best": "台州市五爱不懂反正我觉得她这般做的逼",
             "semantic": []
         },
         {
@@ -24853,7 +24853,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "小蓝你好",
-            "asr_1best": "小榄你好",
+            "asr_1best": "小蓝你好",
             "semantic": []
         },
         {
@@ -24895,7 +24895,7 @@
         {
             "utt_id": 10,
             "manual_transcript": "去上河县沿河路",
-            "asr_1best": "去上和县沿河路",
+            "asr_1best": "去上河县沿河路",
             "semantic": [
                 [
                     "inform",
@@ -24992,7 +24992,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "神州你好",
-            "asr_1best": "滕州你好",
+            "asr_1best": "神州你好",
             "semantic": []
         },
         {
@@ -25127,7 +25127,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我我要到达埔镇延寿村",
-            "asr_1best": "我要到打固镇阳朔村",
+            "asr_1best": "我要到打古镇阳朔村",
             "semantic": [
                 [
                     "inform",
@@ -25155,7 +25155,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航到恒大(unknown)",
-            "asr_1best": "导航到恒大名呼兰",
+            "asr_1best": "导航到恒大名珠兰",
             "semantic": [
                 [
                     "inform",
@@ -25356,7 +25356,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(unknown)你好取消导航",
-            "asr_1best": "天安你好取消导航",
+            "asr_1best": "安安你好取消导航",
             "semantic": [
                 [
                     "inform",
@@ -26323,7 +26323,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航到临汾市永和县政府宾馆",
-            "asr_1best": "导航到临汾市运河县政府宾馆",
+            "asr_1best": "导航到临汾市永和县政府宾馆",
             "semantic": [
                 [
                     "inform",
@@ -28209,7 +28209,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "(side)，昆明站第一个(robot)前方到达收费站",
-            "asr_1best": "安县去昆明站第一个",
+            "asr_1best": "安店去昆明站第一个",
             "semantic": [
                 [
                     "inform",
@@ -29078,7 +29078,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "到成都运通博爱有限公司",
-            "asr_1best": "成都云通博爱有限公司",
+            "asr_1best": "成都运通博爱有限公司",
             "semantic": [
                 [
                     "inform",
@@ -29617,7 +29617,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航麓景花园小区",
-            "asr_1best": "导航御景花园小区",
+            "asr_1best": "导航麓景花园小区",
             "semantic": [
                 [
                     "inform",
@@ -30055,7 +30055,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我要去丁山(unknown)鞋厂",
-            "asr_1best": "我要去金山国际利鞋厂",
+            "asr_1best": "我要去丁山国际利鞋厂",
             "semantic": []
         }
     ],
@@ -30792,7 +30792,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "beyond的歌beyond",
-            "asr_1best": "李洋",
+            "asr_1best": "李阳",
             "semantic": []
         },
         {
@@ -30912,7 +30912,7 @@
         {
             "utt_id": 15,
             "manual_transcript": "(unknown)",
-            "asr_1best": "我管理瑞安市",
+            "asr_1best": "我管理六安市",
             "semantic": []
         },
         {
@@ -31295,7 +31295,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我要去东蒙大酒店",
-            "asr_1best": "我要去东陵大酒店",
+            "asr_1best": "我要去东蒙大酒店",
             "semantic": [
                 [
                     "inform",
@@ -31527,7 +31527,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "我要那秋",
-            "asr_1best": "我要那曲",
+            "asr_1best": "我要那秋",
             "semantic": []
         },
         {
@@ -31547,7 +31547,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(unknown)福海县的乌伦古湖",
-            "asr_1best": "拨通福海县到乌兰贾湖",
+            "asr_1best": "拨通福海县到乌龙贾湖",
             "semantic": [
                 [
                     "inform",
@@ -32042,7 +32042,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "神州你好",
-            "asr_1best": "滕州你好",
+            "asr_1best": "神州你好",
             "semantic": []
         },
         {
@@ -32115,7 +32115,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航到彭七南街建设银行",
-            "asr_1best": "导航到彭七芥建设银行",
+            "asr_1best": "导航到彭七南芥建设银行",
             "semantic": [
                 [
                     "inform",
@@ -32219,7 +32219,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "沈阳沈河区渭南山东宝路",
-            "asr_1best": "沈阳沈河区去渭南市东宝路",
+            "asr_1best": "沈阳沈河去渭南市东宝路",
             "semantic": [
                 [
                     "inform",
@@ -32340,7 +32340,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "你好啊我要去蒲城市",
-            "asr_1best": "你好八宝去浦城是",
+            "asr_1best": "你好阿宝去浦城是",
             "semantic": [
                 [
                     "inform",
@@ -33810,7 +33810,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "神州你好",
-            "asr_1best": "滕州你好",
+            "asr_1best": "神州你好",
             "semantic": []
         },
         {
@@ -33828,7 +33828,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "我要去乾昌光瑶路口",
-            "asr_1best": "我要去乾乾昌光瑶路口",
+            "asr_1best": "我要去乾昌光瑶路口",
             "semantic": [
                 [
                     "inform",
@@ -33878,7 +33878,7 @@
         {
             "utt_id": 4,
             "manual_transcript": "我要去西南光村",
-            "asr_1best": "我要去西南港村",
+            "asr_1best": "我要去西南岗村",
             "semantic": [
                 [
                     "inform",
@@ -34296,7 +34296,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(side)(unknown)导航的嘛又准又随时更新，导航到肇庆",
-            "asr_1best": "给导航去休息观山导航到肇庆",
+            "asr_1best": "给导航去休息冈山导航到肇庆",
             "semantic": [
                 [
                     "inform",
@@ -34548,7 +34548,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我到清那个银川市清和北街",
-            "asr_1best": "我到期华山银川市清和北街",
+            "asr_1best": "我到期惠山银川市清和北街",
             "semantic": [
                 [
                     "inform",
@@ -34609,7 +34609,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航去花佰港",
-            "asr_1best": "导航去花海吗",
+            "asr_1best": "导航去花佰吗",
             "semantic": [
                 [
                     "inform",
@@ -34838,7 +34838,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "(unknown)",
-            "asr_1best": "到金马到金源",
+            "asr_1best": "到金玛到金源",
             "semantic": []
         }
     ],
@@ -35800,7 +35800,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "神州你好",
-            "asr_1best": "滕州你好",
+            "asr_1best": "神州你好",
             "semantic": []
         },
         {
@@ -35858,7 +35858,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "为我导航北京市三零幺医院",
-            "asr_1best": "为我导航北京市三零一医院",
+            "asr_1best": "为我导航北京市三零幺医院",
             "semantic": [
                 [
                     "inform",
@@ -36009,7 +36009,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "西宁市湟源县湟源小区",
-            "asr_1best": "西宁市湟源县黄江小区",
+            "asr_1best": "西宁市湟源县湟源小区",
             "semantic": [
                 [
                     "inform",
@@ -37007,7 +37007,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "请导航到玉林火车站",
-            "asr_1best": "请导航到丽城站",
+            "asr_1best": "请导航到翼城站",
             "semantic": [
                 [
                     "inform",
@@ -37498,7 +37498,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航你好导航光坡",
-            "asr_1best": "导航你好光坡",
+            "asr_1best": "导航你好含光坡",
             "semantic": [
                 [
                     "inform",
@@ -37563,7 +37563,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "来一首韩红的天亮了",
-            "asr_1best": "来一首韩红的天下了",
+            "asr_1best": "来一首韩红的天亮了",
             "semantic": []
         }
     ],
@@ -37791,7 +37791,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "安家镇中心小学",
-            "asr_1best": "天安在吗镇中心小学",
+            "asr_1best": "安安在吗镇中心小学",
             "semantic": [
                 [
                     "inform",
@@ -38286,7 +38286,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我到乐平市众埠镇(side)众(unknown)众大众的众",
-            "asr_1best": "我到乐平市中埔镇盛景",
+            "asr_1best": "我到乐平市中埔镇仲景",
             "semantic": [
                 [
                     "inform",
@@ -38801,7 +38801,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "你好神州",
-            "asr_1best": "你好滕州",
+            "asr_1best": "你好神州",
             "semantic": []
         },
         {
@@ -38821,7 +38821,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我想去长垣县建业(side)建业是啥(unknown)建建业(unknown)建业是个小区(unknown)",
-            "asr_1best": "我想去长垣县建业建业区",
+            "asr_1best": "我想去长垣县建邺建邺区",
             "semantic": [
                 [
                     "inform",
@@ -39019,7 +39019,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航甘肃省信访办",
-            "asr_1best": "导航甘肃省信访办",
+            "asr_1best": "导航甘旭省信访办",
             "semantic": [
                 [
                     "inform",
@@ -39036,7 +39036,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "到济宁市的Q车在这个大街一点干这个的",
+            "asr_1best": "到济南市的Q车在这个大街一点干这个的",
             "semantic": []
         }
     ],
@@ -39091,7 +39091,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "帮我导到工业园区",
-            "asr_1best": "帮我导到中原",
+            "asr_1best": "帮我导到中原区",
             "semantic": [
                 [
                     "inform",
@@ -40132,7 +40132,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "哎你好帮我导航到光光泽光泽县金岭下高速",
-            "asr_1best": "天安你好帮我导航到汪光泽光泽县金岭上高速",
+            "asr_1best": "安安你好帮我导航到汪光泽光泽县金岭上高速",
             "semantic": [
                 [
                     "inform",
@@ -40299,7 +40299,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(unknown)",
-            "asr_1best": "平房",
+            "asr_1best": "平岗",
             "semantic": []
         },
         {
@@ -40497,7 +40497,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "到泰荣银行上海浦东支行",
-            "asr_1best": "到泰荣银海上海浦东支行",
+            "asr_1best": "到泰荣银行上海浦东支行",
             "semantic": [
                 [
                     "inform",
@@ -41198,7 +41198,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "到黄(unknown)高陌乡",
-            "asr_1best": "到常化曲",
+            "asr_1best": "到黄化曲",
             "semantic": [
                 [
                     "inform",
@@ -41841,7 +41841,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "小白去长城宾馆",
-            "asr_1best": "小坝去长城宾馆",
+            "asr_1best": "小白去长城宾馆",
             "semantic": [
                 [
                     "inform",
@@ -42049,7 +42049,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "嘉兴市福莱喷绘写真材料有限公司",
-            "asr_1best": "嘉兴市富达喷绘写真材料有限公司",
+            "asr_1best": "嘉兴市福达喷绘写真材料有限公司",
             "semantic": [
                 [
                     "inform",
@@ -42780,7 +42780,7 @@
         {
             "utt_id": 5,
             "manual_transcript": "黔西县黔西一中",
-            "asr_1best": "请息县黔西一中",
+            "asr_1best": "请西县黔西一中",
             "semantic": [
                 [
                     "inform",
@@ -44708,7 +44708,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航金导航到金阳绿洲湾小区",
-            "asr_1best": "导航金浦导航到金阳绿洲湾小区",
+            "asr_1best": "导航金虎导航到金阳绿洲湾小区",
             "semantic": [
                 [
                     "inform",
@@ -45214,7 +45214,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "航海甸岛人民医院",
-            "asr_1best": "导航甸岛人民医院",
+            "asr_1best": "导航海甸岛人民医院",
             "semantic": [
                 [
                     "inform",
@@ -45255,7 +45255,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "东凤镇人民镇政府",
-            "asr_1best": "东凤镇人民政府",
+            "asr_1best": "东凤镇人民镇政府",
             "semantic": [
                 [
                     "inform",
@@ -46124,7 +46124,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "你好小张",
-            "asr_1best": "你好小山",
+            "asr_1best": "你好小芳",
             "semantic": []
         },
         {
@@ -46348,7 +46348,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我要去梁园焦化",
-            "asr_1best": "我要去梁园消化",
+            "asr_1best": "我要去梁园焦化",
             "semantic": [
                 [
                     "inform",
@@ -47210,7 +47210,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航去常州腾拓机械设备有限公司",
-            "asr_1best": "导航去常州盛拓机械设备有限公司",
+            "asr_1best": "导航去常州腾拓机械设备有限公司",
             "semantic": [
                 [
                     "inform",
@@ -47712,7 +47712,7 @@
         {
             "utt_id": 7,
             "manual_transcript": "海宁第一人民医院",
-            "asr_1best": "海宁电音人民医院",
+            "asr_1best": "海宁第一人民医院",
             "semantic": [
                 [
                     "inform",
@@ -47762,7 +47762,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我要上东青高速",
-            "asr_1best": "我要尚东青高速",
+            "asr_1best": "我要上东青高速",
             "semantic": [
                 [
                     "inform",
@@ -47809,7 +47809,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航去高新店(unknown)",
-            "asr_1best": "导航去高新店站曲屯镇",
+            "asr_1best": "导航去高新店站屯镇",
             "semantic": [
                 [
                     "inform",
@@ -49533,7 +49533,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我要去衡阳衡阳市",
-            "asr_1best": "我要去衡阳衡阳市",
+            "asr_1best": "我要去衡阳沈阳市",
             "semantic": [
                 [
                     "inform",
@@ -50954,7 +50954,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "去东陵大道",
-            "asr_1best": "去东陵大盗",
+            "asr_1best": "去东陵大道",
             "semantic": [
                 [
                     "inform",
@@ -51154,7 +51154,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "(side)点一下(unknown)东门喽",
-            "asr_1best": "点一下了张南吗",
+            "asr_1best": "点一下了中南吗",
             "semantic": []
         }
     ],
@@ -52114,7 +52114,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航到红山北八巷",
-            "asr_1best": "导航到红山北八线",
+            "asr_1best": "导航到洪山北八线",
             "semantic": [
                 [
                     "inform",
@@ -52205,7 +52205,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我要去沈海高速",
-            "asr_1best": "我要去安海高度",
+            "asr_1best": "我要去山海高度",
             "semantic": [
                 [
                     "inform",
@@ -53937,7 +53937,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(side)(dialect)，我到大鹏新区华强南路(side)(dialect)",
-            "asr_1best": "我要到大门新区华强南路",
+            "asr_1best": "我要到大鹏新区华强南路",
             "semantic": [
                 [
                     "inform",
@@ -53990,13 +53990,13 @@
         {
             "utt_id": 1,
             "manual_transcript": "小奇我要到",
-            "asr_1best": "小时我要到",
+            "asr_1best": "小齐我要到",
             "semantic": []
         },
         {
             "utt_id": 2,
             "manual_transcript": "我要去台湾",
-            "asr_1best": "我要去台湾",
+            "asr_1best": "我要去塔湾",
             "semantic": [
                 [
                     "inform",
@@ -54129,7 +54129,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "华北理工迁安学院",
-            "asr_1best": "华威理工迁安学院",
+            "asr_1best": "华北理工迁安学院",
             "semantic": [
                 [
                     "inform",
@@ -54333,7 +54333,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我导航去广达路二百二十二号",
-            "asr_1best": "我导航去广达路日百二十二号",
+            "asr_1best": "我导航去广达路二百二十二号",
             "semantic": [
                 [
                     "inform",
@@ -54490,7 +54490,7 @@
         {
             "utt_id": 4,
             "manual_transcript": "(side)，去章丘区垛庄镇十八盘村",
-            "asr_1best": "我要去章丘音乐庄镇十八盘村",
+            "asr_1best": "我要去章丘音乐杜庄镇十八盘村",
             "semantic": [
                 [
                     "inform",
@@ -57410,7 +57410,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "菜艺街三辅街哈尔滨塑四塑胶厂",
-            "asr_1best": "菜艺街三辅街哈尔滨数视塑胶厂",
+            "asr_1best": "菜艺街三辅街哈尔滨数视朔胶厂",
             "semantic": [
                 [
                     "inform",
@@ -57677,7 +57677,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "小安你好我要去两心电子商务有限公司",
-            "asr_1best": "小山你好我要去两心电子商务有限公司",
+            "asr_1best": "小安你好我要去两心电子商务有限公司",
             "semantic": [
                 [
                     "inform",
@@ -57775,7 +57775,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "取消导航了从二级路上田阳",
-            "asr_1best": "取消导航了虫二级路上咸阳",
+            "asr_1best": "取消导航了虫二级路上田阳",
             "semantic": [
                 [
                     "inform",
@@ -58277,7 +58277,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "你好神州",
-            "asr_1best": "你好滕州",
+            "asr_1best": "你好神州",
             "semantic": []
         }
     ],
@@ -58562,7 +58562,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航小馨你好导航去(unknown)",
-            "asr_1best": "导航小伊您好导航去特文图伟",
+            "asr_1best": "导航小欣您好导航去特文图伟",
             "semantic": [
                 [
                     "inform",
@@ -58597,7 +58597,7 @@
         {
             "utt_id": 4,
             "manual_transcript": "(unknown)",
-            "asr_1best": "郴州味",
+            "asr_1best": "温州味",
             "semantic": []
         },
         {
@@ -58990,7 +58990,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "神州导航",
-            "asr_1best": "郴州导航",
+            "asr_1best": "深州导航",
             "semantic": [
                 [
                     "inform",
@@ -59220,7 +59220,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "神州你好",
-            "asr_1best": "滕州你好",
+            "asr_1best": "神州你好",
             "semantic": []
         },
         {
@@ -59832,7 +59832,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航去晴隆",
-            "asr_1best": "导航去晴隆",
+            "asr_1best": "导航去乾隆",
             "semantic": [
                 [
                     "inform",
@@ -60040,7 +60040,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "帮我导航常州恒力机械有限公司",
-            "asr_1best": "帮我导航杭州恒力机械有限公司",
+            "asr_1best": "帮我导航常州恒力机械有限公司",
             "semantic": [
                 [
                     "inform",
@@ -60113,7 +60113,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "航到担山屯",
-            "asr_1best": "导航到担山亭",
+            "asr_1best": "导航到担山屯",
             "semantic": [
                 [
                     "inform",
@@ -60304,7 +60304,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "(side)(dialect)",
-            "asr_1best": "你有大巴去威海市",
+            "asr_1best": "你有大巴去北海市",
             "semantic": []
         }
     ],
@@ -60340,7 +60340,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我们要去金城金宸国际大酒店(side)(unknown)往哪走金宸国际酒店一直往左拐吧",
-            "asr_1best": "我们要去金城金城国际大酒店万达",
+            "asr_1best": "我们要去金城金宸国际大酒店",
             "semantic": [
                 [
                     "inform",
@@ -60556,7 +60556,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "到融广春天",
-            "asr_1best": "到龙岗春天",
+            "asr_1best": "到融广春天",
             "semantic": [
                 [
                     "inform",
@@ -60568,7 +60568,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "到融广春天",
-            "asr_1best": "到龙岗春天",
+            "asr_1best": "到融广春天",
             "semantic": [
                 [
                     "inform",
@@ -60996,7 +60996,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我去灯明寺到灯明寺吧(unknown)",
-            "asr_1best": "我去灯明逸到达公司吧",
+            "asr_1best": "我去灯明寺到达公司吧",
             "semantic": [
                 [
                     "inform",
@@ -61235,7 +61235,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "(side)",
-            "asr_1best": "你会上街两腿",
+            "asr_1best": "你会上海街两腿",
             "semantic": []
         }
     ],
@@ -61499,7 +61499,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "去荷塘盛宴",
-            "asr_1best": "去和唐城面",
+            "asr_1best": "去和唐胜面",
             "semantic": [
                 [
                     "inform",
@@ -62067,7 +62067,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "我要吃常州市淹城野生动物园",
-            "asr_1best": "我要吃常州市阳城野生动物园",
+            "asr_1best": "我要吃常州市淹城野生动物园",
             "semantic": [
                 [
                     "inform",
@@ -62261,7 +62261,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "导航到四川省中江县(unknown)",
-            "asr_1best": "导航到四川省中江县星河乡",
+            "asr_1best": "导航到四川省中江县清河乡",
             "semantic": [
                 [
                     "inform",
@@ -64319,7 +64319,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(unknown)县图书大楼",
-            "asr_1best": "息县图书大楼",
+            "asr_1best": "新县图书大楼",
             "semantic": [
                 [
                     "inform",
@@ -64817,7 +64817,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "(unknown)到新镇",
-            "asr_1best": "取消到新郑",
+            "asr_1best": "取消到新镇",
             "semantic": [
                 [
                     "inform",
@@ -65350,7 +65350,7 @@
         {
             "utt_id": 2,
             "manual_transcript": "(unknown)川市新华街",
-            "asr_1best": "银川是新华街",
+            "asr_1best": "临川是新华街",
             "semantic": [
                 [
                     "inform",
@@ -65378,7 +65378,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "你好神州",
-            "asr_1best": "你好滕州",
+            "asr_1best": "你好神州",
             "semantic": []
         },
         {
@@ -65777,7 +65777,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "(side)(unknown)往哪边方向走(unknown)",
-            "asr_1best": "不过下载贾宋镇河边方向走",
+            "asr_1best": "不过下载宋镇河边方向走",
             "semantic": []
         },
         {
@@ -66447,7 +66447,7 @@
         {
             "utt_id": 1,
             "manual_transcript": "请导航到南菜市农副产品批发市场",
-            "asr_1best": "请导航到南沙菜市农副产品批发市场",
+            "asr_1best": "请导航到南菜市农副产品批发市场",
             "semantic": [
                 [
                     "inform",
@@ -66668,7 +66668,7 @@
         {
             "utt_id": 3,
             "manual_transcript": "(unknown)",
-            "asr_1best": "家的担山",
+            "asr_1best": "家的鞍山",
             "semantic": []
         },
         {

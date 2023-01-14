@@ -17,7 +17,7 @@ if args.csc_model != 'sound':
     if args.csc_train:
         raise ValueError("Only similar-sound-csc model can be trained.")
 elif (not args.csc_train) and (args.csc_pretrained is None):
-        raise ValueError("A model with neither pre-trained model loading nor training is meaningless.")
+        print("Default pretrained vocab for similar-sound-csc will be loaded.")
 
 set_random_seed(args.seed)
 print("Initialization finished ...")
@@ -46,6 +46,7 @@ args.num_tags = CSCDataset.label_vocab.num_tags
 args.tag_pad_idx = CSCDataset.label_vocab.convert_tag_to_idx(PAD)
 
 print("Creating corrector...")
+testonasr_mode = False
 if args.csc_model == 'Ernie4CSC':
     """
     Use our implementation of Ernie4CSC with torch.
@@ -89,26 +90,38 @@ elif args.csc_model == "sound":
     """
 
     from model.correcting_model import SimCSC
-    csc_model = SimCSC()
-    if args.csc_pretrained is not None:
-        csc_model.load_vocab(args.csc_pretrained)
-        print("similar-sound-csc loaded.")
-    elif args.csc_train:
+    csc_model = SimCSC(log="checkpoints/corrected.txt")
+    if args.csc_train:
         print("training similar-sound-csc....")
         csc_model.learn(csc_train)
         csc_model.save_vocab()
+    else:
+        if args.csc_pretrained is None:
+            csc_model.load_vocab()
+        else:
+            csc_model.load_vocab(args.csc_pretrained)
+        print("similar-sound-csc loaded.")
+    
     corrector = csc_model.correct
+
+elif args.csc_model == "NoCSC":
+    """
+    Test on asr_1best and manuscript.
+    """
+
+    testonasr_mode = True
+
     
 csc_train = csc_train_d
 print("Corrector prepared.")
 
-csc_train_name = "train_{}".format(args.csc_model)
-csc_dev_name = "dev_{}".format(args.csc_model)
+csc_train_name = "train_{}_csc".format(args.csc_model)
+csc_dev_name = "dev_{}_csc".format(args.csc_model)
 if args.use_history:
     csc_train_name += "_his"
     csc_dev_name += "_his"
-csc_train_name = csc_train_name + "_csc.json"
-csc_dev_name = csc_dev_name + "_csc.json"
+csc_train_name = csc_train_name + ".json"
+csc_dev_name = csc_dev_name + ".json"
 
 
 def csc_process(dataset, path, save_path=None, filename=None, save=True):
@@ -127,7 +140,10 @@ def csc_process(dataset, path, save_path=None, filename=None, save=True):
         batch = dataset[i]
         for j in range(len(batch)):
             data = batch[j]
-            pred, _ = corrector(data.utt)
+            if not testonasr_mode:
+                pred, _ = corrector(data.utt)
+            else:
+                pred = data.utt
             label = data.label
             corrections.append(pred)
             labels.append(label)
@@ -141,8 +157,14 @@ def csc_process(dataset, path, save_path=None, filename=None, save=True):
 
 
 print("Evaluating on training dataset (as dev_1)...")
+if args.csc_model == "sound":
+    with open("checkpoints/corrected.txt", 'a', encoding='utf8') as f:
+        f.write("======= train ========\n")
 metrics_train = csc_process(csc_train, train_path, args.dataroot, csc_train_name, save=args.csc_save)
 print("Evaluating on development dataset (as dev_2)...")
+if args.csc_model == "sound":
+    with open("checkpoints/corrected.txt", 'a', encoding='utf8') as f:
+        f.write("======== dev =========\n")
 metrics_dev = csc_process(csc_dev, dev_path, args.dataroot, csc_dev_name, save=args.csc_save)
 
 acc, fscore = metrics_train['acc'], metrics_train['fscore']
