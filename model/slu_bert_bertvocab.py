@@ -7,6 +7,7 @@ from transformers import BertModel,AutoTokenizer,AutoModelForTokenClassification
 from utils.vocab import PAD, UNK
 from utils.decoder import decode_baseline,decode_new,decode_onei
 from utils.pos_encoding import PositionalEncoding
+import math
 
 
 
@@ -28,7 +29,6 @@ class SLUBert_bertvocab(nn.Module):
         tag_mask = batch.tag_mask
         input_ids = batch.input_ids
         B = len(input_ids)
-        
         lengths = batch.lengths
         utt = batch.utt
         embeds = torch.zeros(B,max(lengths),self.config.embed_size).to(self.device)
@@ -81,6 +81,7 @@ class TaggingFNNDecoder(nn.Module):
         if self.add_att:
             hiddens = self.pos_encoding(hiddens)
             hiddens = self.attention(hiddens,hiddens,hiddens)[0]
+            hiddens /= math.sqrt(hiddens.shape[2])
         logits = self.output_layer(hiddens)
         logits += (1 - mask).unsqueeze(-1).repeat(1, 1, self.num_tags) * -1e32
         prob = torch.softmax(logits, dim=-1)
