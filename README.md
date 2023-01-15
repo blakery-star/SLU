@@ -7,11 +7,11 @@
     pip install torch==1.7.1
     pip install transformers
     
-如果想使用（会产生负效果的）文本纠错模块，则另外需要以下环境。
+（不推荐）如果想使用（会产生负效果的）文本纠错模块，则另外需要以下环境。
     
     pip install pycorrector
     
-特别地，对Ernie4CSC，需以下环境。
+（不推荐）特别地，对Ernie4CSC，需以下环境。
     
     pip install paddlepaddle
     pip install paddlenlp
