@@ -10,25 +10,25 @@
     以上为推荐设置，在本branch中同样支持高版本torch（经验证，至少支持至1.13.0版本）。
 ### 运行
 + 序列标注模块  
-  在根目录下运行
+    + 在根目录下运行
 
-    `python scripts/slu_tagging.py --[options]`
+      + `python scripts/slu_tagging.py --[options]`
 
-  参数设置
-    + `--dataroot`:数据文件夹位置
-    + `--seed`：随机种子
-    + `--device`：使用的GPU编号（-1表示使用CPU）
-    + `--testing`：仅测试（当前目录下保存有之前训练过的、同样参数组的模型时才有效）
+    + 参数设置
+      + `--dataroot`:数据文件夹位置
+      + `--seed`：随机种子
+      + `--device`：使用的GPU编号（-1表示使用CPU）
+      + `--testing`：仅测试（当前目录下保存有之前训练过的、同样参数组的模型时才有效）
 
-    + `--model`：选择序列标注模型：baseline/bert
-    + `--decode`：选择解码方式：baseline/onei/newdecode
-    + `--train_data`：选择用于训练序列标注模型的训练数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
-    + `--dev_data`： 选择用于测试序列标注模型的测试数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
-    + `--encoder_cell`：选择encoder—cell：LSTM/GRU/RNN
+      + `--model`：选择序列标注模型：baseline/bert
+      + `--decode`：选择解码方式：baseline/onei/newdecode
+      + `--train_data`：选择用于训练序列标注模型的训练数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
+      + `--dev_data`： 选择用于测试序列标注模型的测试数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
+      + `--encoder_cell`：选择encoder—cell：LSTM/GRU/RNN
   
-    + `--batch_size`：设置batch大小
-    + `--lr`：设置学习率
-    + `--max_epoch`：设置训练轮次
+      + `--batch_size`：设置batch大小
+      + `--lr`：设置学习率
+      + `--max_epoch`：设置训练轮次
 
 + 文本纠错模块（对ASR的文本结果进行降噪）
   + 实现的方式：
