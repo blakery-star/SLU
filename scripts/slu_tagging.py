@@ -63,8 +63,7 @@ if args.model_path==None:
     model_file_path = os.path.join('./save_model',args.model+"_"+args.pretrained_model+"_"+args.decode+"_"+args.train_data+"_"+args.encoder_cell+"_attention{}_tune{}_batch_size{}_lr{}_max_epoch{}_dropout{}_embed_size{}_hidden_size{}_num_layer{}_seed{}_outblank{}".format(args.add_att,args.tune,args.batch_size,args.lr,args.max_epoch,args.dropout,args.embed_size,args.hidden_size,args.num_layer,args.seed,args.out_blank))
     model_path=os.path.join(model_file_path,"model.bin")
 else:
-    model_file_path = os.path.join('./save_model',args.model_path)
-    model_path=os.path.join(model_file_path,"model.bin")
+    model_path=args.model_path
 
 
 if args.testing:
@@ -171,7 +170,7 @@ if not args.testing:
         print('Evaluation: \tEpoch: %d\tTime: %.4f\tDev acc: %.2f\tDev fscore(p/r/f): (%.2f/%.2f/%.2f)' % (i, time.time() - start_time, dev_acc, dev_fscore['precision'], dev_fscore['recall'], dev_fscore['fscore']))
         if dev_acc > best_result['dev_acc']:
             best_result['dev_loss'], best_result['dev_acc'], best_result['dev_f1'], best_result['iter'] = dev_loss, dev_acc, dev_fscore, i
-            if not os.path.exists(model_file_path):os.mkdir(model_file_path)
+            if not os.path.exists(model_file_path) and args.model_path==None:os.mkdir(model_file_path)
             torch.save({
                 'epoch': i, 'TagModel': TagModel.state_dict(),
                 'optim': optimizer.state_dict(),

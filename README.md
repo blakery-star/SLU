@@ -31,11 +31,11 @@
    
    1. 模型一运行：
         
-   `python scripts/slu_tagging.py --model bert --device [GPU ID,-1表示CPU] --train_data manu --decode newdecode --tune --fintune --test --model_path xxx`
+      + `python scripts/slu_tagging.py --model bert --device [GPU ID,-1表示CPU] --train_data manu --decode newdecode --tune --fintune --testing --model_path [.bin模型文件路径]`
    
    2. 模型二运行：
    
-   `python scripts/slu_tagging.py --model bert --device [GPU ID,-1表示CPU] --train_data asr --decode onei --tune --finetune --test --model_path xxx`
+      + `python scripts/slu_tagging.py --model bert --device [GPU ID,-1表示CPU] --train_data asr --decode onei --tune --finetune --testing --model_path [.bin模型文件路径]`
    
 
 
