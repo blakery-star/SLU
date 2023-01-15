@@ -9,17 +9,41 @@
     
     以上为推荐设置，在本branch中同样支持高版本torch（经验证，至少支持至1.13.0版本）。
 ### 运行
-    
-在根目录下运行
++ 序列标注模块  
+  在根目录下运行
 
-    python scripts/slu_tagging.py
+    python scripts/slu_tagging.py --[options]
 
-参数设置
-  + --model：选择序列标注模型：baseline/bert
-  + --decode：选择解码方式：baseline/onei/newdecode
-  + --train_data：选择用于训练序列标注模型的训练数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
-  + --dev_data： 选择用于测试序列标注模型的测试数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
+  参数设置
+    + --dataroot:数据文件夹位置
+    + --seed：随机种子
+    + --device：使用的GPU编号（-1表示使用CPU）
+    + --testing：仅测试（当前目录下保存有之前训练过的、同样参数组的模型时才有效）
 
+    + --model：选择序列标注模型：baseline/bert
+    + --decode：选择解码方式：baseline/onei/newdecode
+    + --train_data：选择用于训练序列标注模型的训练数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
+    + --dev_data： 选择用于测试序列标注模型的测试数据来源：manu/asr/MacBERT/sound/Ernie。其中MacBERT/sound/Ernie后缀可添加_his表示使用对话历史，这些数据需要提前使用scripts/csc.py进行生成
+    + --encoder_cell：选择encoder—cell：LSTM/GRU/RNN
+  
+    + --batch_size：设置batch大小
+    + --lr：设置学习率
+    + --max_epoch：设置训练轮次
+
++ 文本纠错模块（对ASR的文本结果进行降噪）
+  + 实现的方式：
+    + 我们自己实现的基于torch的Ernie4CSC及对应预训练模型（不推荐）
+    + 基于pycorrector实现的MacBERT4CSC
+    + 基于pycorrector实现的Ernie4CSC
+    + 我们的方法similar-sound-csc：构建混淆音词典，同时进行纠错和对话历史利用
+  + 使用方法
+    + `python scripts/csc.py --[options]`
+  + 相关参数解释
+    + `--csc_model`：使用何种模型进行文本纠错/降噪（可选：`Ernie`，`MacBERT`，`sound`）
+    + `--csc_pretrained`：使用预训练模型路径（不使用该选项则使用默认的预训练模型（对Ernie4CSC和MacBERT4CSC）或不使用预训练（对similar-sound-csc）
+    + `--csc_train`：是否进行训练（对similar-sound-csc）
+    + `--csc_save`：是否保存当前模型词表（对similar-sound-csc)
+    + `--use_history`：进行纠错时是否使用当前对话中的历史记录
 
 ### 代码说明
 
@@ -32,40 +56,14 @@
 + `utils/word2vec.py`:读取词向量
 + `utils/example.py`:读取数据
 + `utils/batch.py`:将数据以批为单位转化为输入
-+ `model/slu_baseline_tagging.py`:baseline模型
-+ `scripts/slu_baseline.py`:主程序脚本
 + `utils/decoder.py`:从序列标注解码得到slot-value
++ `utils/bert2embd.py`:
++ `utils/example_for_csc.py`:
++ `utils/pos_encoding.py`:
++ `utils/vocab_for_onei.py`:构建支持Onei方法的编码词表
++ `model/slu_bert_bertvocab.py`：bert模型
++ `model/slu_baseline_tagging.py`:baseline模型
++ `model/correcting_model.py`：文本纠错模型
++ `scripts/slu_tagging.py`:主程序脚本
++ `scripts/csc.py`:文本纠错脚本
 
-### 有关预训练语言模型
-
-本次代码中没有加入有关预训练语言模型的代码，如需使用预训练语言模型我们推荐使用下面几个预训练模型，若使用预训练语言模型，不要使用large级别的模型
-+ Bert: https://huggingface.co/bert-base-chinese
-+ Bert-WWM: https://huggingface.co/hfl/chinese-bert-wwm-ext
-+ Roberta-WWM: https://huggingface.co/hfl/chinese-roberta-wwm-ext
-+ MacBert: https://huggingface.co/hfl/chinese-macbert-base
-
-### 推荐使用的工具库
-+ transformers
-  + 使用预训练语言模型的工具库: https://huggingface.co/
-+ nltk
-  + 强力的NLP工具库: https://www.nltk.org/
-+ stanza
-  + 强力的NLP工具库: https://stanfordnlp.github.io/stanza/
-+ jieba
-  + 中文分词工具: https://github.com/fxsjy/jieba
-
-### 改动
-+ 针对特定运行环境下编码错误的修复
-  + 对在\utils文件夹下的文件中的所有json.load(f)函数，在其之前的open函数的输入中，添加了变量设置encoding = 'utf-8'。
-+ 增加了多模型选择模块
-  + 在scripts文件夹中增加了slu_tagging.py文件，该文件同样为主程序脚本，但支持选择不同的模型进行测试或训练。
-  + 修改了utils/args.py文件，添加了"--model"参数。
-
-+ 增加了训练数据选择功能
-  + 修改了utils/args.py文件，添加了"--training_data"参数。
-
-+ 增加了两个模型
-  + newDecode
-  + onei
-
-+ 增加了csc模块
