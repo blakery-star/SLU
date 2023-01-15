@@ -12,7 +12,7 @@
 + 序列标注模块  
   在根目录下运行
 
-    python scripts/slu_tagging.py --[options]
+    `python scripts/slu_tagging.py --[options]`
 
   参数设置
     + --dataroot:数据文件夹位置
@@ -47,10 +47,7 @@
 
 ### 代码说明
 
-+ `utils/args.py`:定义了所有涉及到的可选参数，如需改动某一参数可以在运行的时候将命令修改成
-        
-        python scripts/slu_baseline.py --<arg> <value>
-    其中，`<arg>`为要修改的参数名，`<value>`为修改后的值
++ `utils/args.py`:定义了所有涉及到的可选参数
 + `utils/initialization.py`:初始化系统设置，包括设置随机种子和显卡/CPU
 + `utils/vocab.py`:构建编码输入输出的词表
 + `utils/word2vec.py`:读取词向量
