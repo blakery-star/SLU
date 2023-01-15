@@ -25,9 +25,10 @@ class SLUBert_bertvocab(nn.Module):
 
     def forward(self, batch):
         tag_ids = batch.tag_ids
-        B = len(tag_ids)
         tag_mask = batch.tag_mask
         input_ids = batch.input_ids
+        B = len(input_ids)
+        
         lengths = batch.lengths
         utt = batch.utt
         embeds = torch.zeros(B,max(lengths),self.config.embed_size).to(self.device)
