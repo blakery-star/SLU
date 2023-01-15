@@ -17,9 +17,12 @@
     pip install paddlenlp
     
 ### 最优模型测试方法
-  + 在根目录下运行
+   +  我们在测试集上有两个模型配置取得了准确率的最优结果。(1)模型采用bert并微调——训练数据采用manu——解码方式采用概率解码方式newdecode （2)模型采用bert并微调——训练数据采用asr——解码方式采用onei编码。我们这里分别提供了两个模型的网盘链接：模型1：https://pan.baidu.com/s/10TNzA6Ufg-zPVbsJbcGMSQ  模型2：https://pan.baidu.com/s/1qOaqU_MndkcfrEBSxTSjsg 你可以从中下载相应的模型并保存到对应model_path
+  + 在根目录下运行测试代码
+   (1)模型一运行：`python scripts/slu_tagging.py --model bert --device [GPU ID,-1表示CPU] --train_data manu --decode newdecode --tune --fintune --test --model_path xxx
+   (2)模型二运行：`python scripts/slu_tagging.py --model bert --device [GPU ID,-1表示CPU] --train_data asr --decode onei --tune --finetune --test --model_path xxx `
+   
 
-    + `python scripts/slu_tagging.py --device [GPU ID,-1表示CPU] --testing --decode newdecode --model_path `
 
 ### 运行
 + 序列标注模块  
