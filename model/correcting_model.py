@@ -32,47 +32,52 @@ class SimCSC():
     def load_vocab(self, path="checkpoints/slotvalue_vocab.json"):
         self.vocab = json.load(open(path, 'r', encoding='utf-8'))
 
-    def correct(self, utterance, cutoff_sound=0.9, cutoff_look=0.75, use_history=True, ext=True):
+    def correct(self, utterance, cutoff_sound=0.9, use_history=True, ext=True):
             
         def crt(utt, self_vocab=self.vocab, use_history=False):
-            words = pseg.cut(utt)
+            words = list(pseg.cut(utt))
             current_pinyin = ""
             current_word = ""
             start_flag = False
-            for word in words:
-                if len(word.word)<2: continue
-                if word.flag == "ns" or word.flag == "nr":
-                    start_flag = True
-                if start_flag:
-                    pinyin = lazy_pinyin(word.word, style=tone)
-                    pinyin = ''.join(pinyin)
-                    current_pinyin += pinyin
-                    current_word += word.word
+            for i in range(len(words)):
+                if words[i].flag == "ns" or words[i].flag == "nr":
+                    break
+
+            for j in range(len(words)-1,-1,-1):
+                if words[j].flag.find("n") == 0:
+                    break
+
+            if (j<i):
+                j = len(words)-1
+
+            for k in range(i,j+1):
+                pinyin = lazy_pinyin(words[k].word, style=tone)
+                pinyin = ''.join(pinyin)
+                current_pinyin += pinyin
+                current_word += words[k].word
+
             correct = difflib.get_close_matches(current_pinyin, set(self_vocab.keys()), cutoff=cutoff_sound)
             if len(correct) > 0:
-                best_match = difflib.get_close_matches(current_word, self_vocab[correct[0]], cutoff=cutoff_look)
+                best_match = self_vocab[correct[0]]
                 if len(best_match) > 0:
-                    if (best_match[0].find(current_word) >= 0) or (current_word.find(best_match[0]) >= 0):
-                        return utt
-                    utt = utt.replace(current_word, best_match[0])
-                    if self.log is not None:
-                        with open(self.log, 'a', encoding='utf8') as f:
-                            f.write(current_word + " -> " + best_match[0] + "\n")
-                else:
-                    if use_history:
-                        self_vocab[current_pinyin] = [current_word.word]
+                    if (best_match[0].find(current_word) < 0) and (current_word.find(best_match[0]) < 0) \
+                                                              and abs(len(current_word) - len(best_match[0])) < 2:
+                        utt = utt.replace(current_word, best_match[0])
+                        current_word = best_match[0]
+                        if self.log is not None:
+                            with open(self.log, 'a', encoding='utf8') as f:
+                                f.write(current_word + " -> " + best_match[0] + "\n")
+
             if use_history:
                 self_vocab[current_pinyin] = [current_word]
-            current_pinyin = ""
-            current_word = ""
 
             return utt
         
         if isinstance(utterance, str):
             if ext:
-                return crt(utterance), None
+                return crt(utterance, use_history=use_history), None
             else:
-                return crt(utterance)
+                return crt(utterance, use_history=use_history)
         elif isinstance(utterance, list):
             if (isinstance(utterance[0], str) and use_history and (len(utterance) > 1)):
                 answer = []
@@ -84,6 +89,6 @@ class SimCSC():
                 else:
                     return answer
             else:
-                return [correct(utt, ext=False) for utt in utterance], None
+                return [correct(utt, use_history=use_history, ext=False) for utt in utterance], None
         else:
             raise ValueError("faulty type of utterance.")
