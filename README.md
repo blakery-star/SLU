@@ -16,7 +16,11 @@
     pip install paddlepaddle
     pip install paddlenlp
     
-    
+### 最优模型测试方法
+  + 在根目录下运行
+
+    + `python scripts/slu_tagging.py --device [GPU ID,-1表示CPU] --testing --decode newdecode --model_path `
+
 ### 运行
 + 序列标注模块  
     + 在根目录下运行
@@ -38,6 +42,7 @@
       + `--batch_size`：设置batch大小
       + `--lr`：设置学习率
       + `--max_epoch`：设置训练轮次
+      + `--model_path`：模型保存路径
 
 + 文本纠错模块（对ASR的文本结果进行降噪）（不推荐，都将导致效果变差）
   + 实现的方式：
