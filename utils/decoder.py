@@ -74,6 +74,9 @@ def decode_new(self, label_vocab, batch):
                     idx_buff.append(idx)
                     tag_buff.append(tag)
                 else:
+                    print(batch[i].utt)
+                    print([label_vocab.convert_idx_to_tag(x) for x in pred])
+                    print(batch[i].tags)
                     slot_prob,slot2_prob=1,1
                     for k in range(len(tag_buff)):
                         slot_idx=label_vocab.convert_tag_to_idx(tag_buff[k][0]+'-'+slot)
