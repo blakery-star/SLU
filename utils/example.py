@@ -3,7 +3,6 @@ import json
 from utils.vocab import Vocab, LabelVocab
 from utils.vocab_for_onei import LabelVocab_for_onei
 from utils.word2vec import Word2vecUtils
-from utils.bert2embd import Bert2vecUtils
 from utils.evaluator import Evaluator
 from transformers import BertTokenizer, BertConfig, BertForMaskedLM, BertForNextSentencePrediction
 from transformers import BertModel,AutoTokenizer,AutoModelForTokenClassification
