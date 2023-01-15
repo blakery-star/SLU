@@ -21,6 +21,7 @@ def add_argument_base(arg_parser):
     arg_parser.add_argument('--decode', default="baseline", help='Mode of tagging, baseline/onei/newdecode ')
     arg_parser.add_argument('--train_data', default="asr", help='Which data for training, manu/asr/MacBERT/sound/Ernie + _his or not')
     arg_parser.add_argument('--dev_data', default="asr", help='Which data for testing, asr/MacBERT/sound/Ernie')
+    arg_parser.add_argument('--model_path', default=None, help='Save/Load path of the model')
     
 
     # For CSC (Denoising the results of ASR) #

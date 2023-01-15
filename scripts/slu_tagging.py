@@ -59,9 +59,13 @@ else:
 
 if not os.path.exists("./save_model"):
     os.makedirs("./save_model")
+if args.model_path==None:
+    model_file_path = os.path.join('./save_model',args.model+"_"+args.pretrained_model+"_"+args.decode+"_"+args.train_data+"_"+args.encoder_cell+"_attention{}_tune{}_batch_size{}_lr{}_max_epoch{}_dropout{}_embed_size{}_hidden_size{}_num_layer{}_seed{}_outblank{}".format(args.add_att,args.tune,args.batch_size,args.lr,args.max_epoch,args.dropout,args.embed_size,args.hidden_size,args.num_layer,args.seed,args.out_blank))
+    model_path=os.path.join(model_file_path,"model.bin")
+else:
+    model_file_path = os.path.join('./save_model',args.model_path)
+    model_path=os.path.join(model_file_path,"model.bin")
 
-model_file_path = os.path.join('./save_model',args.model+"_"+args.pretrained_model+"_"+args.decode+"_"+args.train_data+"_"+args.encoder_cell+"_attention{}_tune{}_batch_size{}_lr{}_max_epoch{}_dropout{}_embed_size{}_hidden_size{}_num_layer{}_seed{}_outblank{}".format(args.add_att,args.tune,args.batch_size,args.lr,args.max_epoch,args.dropout,args.embed_size,args.hidden_size,args.num_layer,args.seed,args.out_blank))
-model_path=os.path.join(model_file_path,"model.bin")
 
 if args.testing:
     check_point = torch.load(open(model_path, 'rb'), map_location=device)
