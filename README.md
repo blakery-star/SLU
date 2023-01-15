@@ -39,14 +39,17 @@
       + `--lr`：设置学习率
       + `--max_epoch`：设置训练轮次
 
-+ 文本纠错模块（对ASR的文本结果进行降噪）
++ 文本纠错模块（对ASR的文本结果进行降噪）（不推荐，都将导致效果变差）
   + 实现的方式：
     + 我们自己实现的基于torch的Ernie4CSC及对应预训练模型（不推荐）
     + 基于pycorrector实现的MacBERT4CSC
     + 基于pycorrector实现的Ernie4CSC
+
     + 我们的方法similar-sound-csc：构建混淆音词典，同时进行纠错和对话历史利用
+    
   + 使用方法
     + `python scripts/csc.py --[options]`
+    
   + 相关参数解释
     + `--csc_model`：使用何种模型进行文本纠错/降噪（可选：`Ernie`，`MacBERT`，`sound`）
     + `--csc_pretrained`：使用预训练模型路径（不使用该选项则使用默认的预训练模型（对Ernie4CSC和MacBERT4CSC）或不使用预训练（对similar-sound-csc）
