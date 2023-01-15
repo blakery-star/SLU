@@ -66,9 +66,8 @@
 + `utils/example.py`:读取数据
 + `utils/batch.py`:将数据以批为单位转化为输入
 + `utils/decoder.py`:从序列标注解码得到slot-value
-+ `utils/bert2embd.py`:
 + `utils/example_for_csc.py`:
-+ `utils/pos_encoding.py`:
++ `utils/pos_encoding.py`:为self-attention模块计算positional-encoding
 + `utils/vocab_for_onei.py`:构建支持Onei方法的编码词表
 + `model/slu_bert_bertvocab.py`：bert模型
 + `model/slu_baseline_tagging.py`:baseline模型
