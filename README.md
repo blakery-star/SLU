@@ -1,17 +1,17 @@
 ### 创建环境
 
-    如果想使用我们的最佳模型，推荐设置如下。在本branch中同样支持高版本torch（经验证，至少支持至1.13.0版本）。
+如果想使用我们的最佳模型，推荐设置如下。在本branch中同样支持高版本torch（经验证，至少支持至1.13.0版本）。
     
     conda create -n slu python=3.6
     conda activate slu
     pip install torch==1.7.1
     pip install transformers
     
-    如果想使用（会产生负效果的）文本纠错模块，则另外需要以下环境。
+如果想使用（会产生负效果的）文本纠错模块，则另外需要以下环境。
     
     pip install pycorrector
     
-    特别地，对Ernie4CSC，需以下环境。
+特别地，对Ernie4CSC，需以下环境。
     
     pip install paddlepaddle
     pip install paddlenlp
